@@ -1,1 +1,4 @@
-runhaskell Setup.lhs haddock --hyperlink-source
+cabal install --enable-documentation 
+cabal haddock --hyperlink-source
+cabal install
+runhaskell versioncheck.hs
