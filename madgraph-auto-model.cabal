@@ -14,6 +14,14 @@ Library
   hs-source-dirs: src
   ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind
   ghc-prof-options: -caf-all -auto-all
-  Build-Depends: base>4, mtl>2, filepath > 1
+  Build-Depends: base>4, mtl>2, filepath > 1, madgraph-auto > 0.3.5, HStringTemplate, HStringTemplateHelpersIW
   Exposed-Modules: 
-                   HEP.Automation.MadGraph.Model.Wprime
+                   HEP.Automation.MadGraph.Model.Common
+                   HEP.Automation.MadGraph.Model.Exotic
+                   HEP.Automation.MadGraph.Model.SM
+                   HEP.Automation.MadGraph.Model.Wp
+                   HEP.Automation.MadGraph.Model.ZpH
+                   HEP.Automation.MadGraph.Model.Six
+                   HEP.Automation.MadGraph.Model.Trip
+                   HEP.Automation.MadGraph.Model.AxiGluon
+                   HEP.Automation.MadGraph.Model.WpZpFull
