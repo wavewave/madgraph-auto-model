@@ -6,6 +6,7 @@ import HEP.Automation.MadGraph.Model
 import Text.Printf
 import Text.StringTemplate
 import Text.StringTemplate.Helpers
+import System.FilePath ((</>))
 
 data SM = SM 
         deriving Show
@@ -17,7 +18,7 @@ instance Model SM where
   modelName SM = "sm"
   paramCard4Model SM   = "param_card_sm.dat"
   paramCardSetup tpath SM SMParam = do  
-    str <- readFile (tpath ++ "/" ++ paramCard4Model SM ++ ".st" )  
+    str <- readFile (tpath </> paramCard4Model SM ++ ".st" )  
     return str
   briefParamShow  SMParam = "" 
 

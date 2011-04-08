@@ -10,6 +10,8 @@ import Text.StringTemplate.Helpers
 import HEP.Automation.MadGraph.Model
 import HEP.Automation.MadGraph.Model.Common
 
+import System.FilePath ((</>))
+
 data ZpH = ZpH
          deriving Show
 

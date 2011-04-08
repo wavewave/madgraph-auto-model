@@ -7,6 +7,8 @@ import Text.Printf
 import Text.StringTemplate
 import Text.StringTemplate.Helpers
 
+import System.FilePath ((</>))
+
 import HEP.Automation.MadGraph.Model
 
 data AxiGluon = AxiGluon
