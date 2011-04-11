@@ -48,7 +48,7 @@ gammaTop :: Double   -- ^ mtop
             -> Double   -- ^ mZp  
             -> Double   -- ^ gHbd
             -> Double
-gammaTop mt mzp ghbd = (ghbd^(2::Int) / (64.0*pi)* mt^(3::Int) / (mzp*mzp) 
+gammaTop mt mzp ghbd = (ghtu^(2::Int) / (64.0*pi)* mt^(3::Int) / (mzp*mzp) 
                           * ( 1- mzp*mzp / (mt*mt))^(2::Int)
                           * ( 1+ 2.0 * mzp*mzp / (mt*mt) ))
                        + smgammatop 
