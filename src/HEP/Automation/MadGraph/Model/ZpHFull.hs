@@ -28,7 +28,7 @@ instance Model ZpHFull where
                  [ ("mZp" , (printf "%.4e" (mZp p)         :: String))
                  , ("gHtu", (printf "%.4e" (gHtu p/sqrt 2) :: String))
                  , ("gHbd", (printf "%.4e" (gHbd p/sqrt 2) :: String))
-                 , ("wTop", (printf "%.4e" (gammaTop mtop (mZp p) (gHbd p)) :: String))
+                 , ("wTop", (printf "%.4e" (gammaTop mtop (mZp p) (gHtu p)) :: String))
                  , ("wZp" , (printf "%.4e" (gammaZp (mZp p) (gHbd p)) :: String))
                  ]
                  (paramCard4Model ZpHFull)  ) ++ "\n\n\n"
@@ -48,7 +48,7 @@ gammaTop :: Double   -- ^ mtop
             -> Double   -- ^ mZp  
             -> Double   -- ^ gHbd
             -> Double
-gammaTop mt mzp ghbd = (ghtu^(2::Int) / (64.0*pi)* mt^(3::Int) / (mzp*mzp) 
+gammaTop mt mzp ghtu = (ghtu^(2::Int) / (64.0*pi)* mt^(3::Int) / (mzp*mzp) 
                           * ( 1- mzp*mzp / (mt*mt))^(2::Int)
                           * ( 1+ 2.0 * mzp*mzp / (mt*mt) ))
                        + smgammatop 
