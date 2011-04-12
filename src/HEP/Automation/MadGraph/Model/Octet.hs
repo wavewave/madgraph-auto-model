@@ -1,6 +1,6 @@
 {-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts #-}
 
-module HEP.Automation.MadGraph.Model.Singlet where
+module HEP.Automation.MadGraph.Model.Octet where
 
 import Text.Printf
 
@@ -10,18 +10,18 @@ import Text.StringTemplate.Helpers
 import HEP.Automation.MadGraph.Model
 import HEP.Automation.MadGraph.Model.Common
 
-data Singlet = Singlet
+data Octet = Octet
   deriving Show
 
-instance Model Singlet where
-  data ModelParam Singlet = SingletParam { mhh :: Double,  
-                                           gtu :: Double, 
-                                           gbd :: Double }
+instance Model Octet where
+  data ModelParam Octet = OctetParam { mhh :: Double,  
+                                       gtu :: Double, 
+                                       gbd :: Double }
                           deriving Show
-  briefShow Singlet = "Singlet"                             
-  modelName Singlet = "scalarSinglet_MG" 
-  paramCard4Model Singlet   = "param_card_Singlet.dat"
-  paramCardSetup tpath Singlet p = do 
+  briefShow Octet = "Octet"                             
+  modelName Octet = "scalarOctet_MG" 
+  paramCard4Model Octet   = "param_card_Octet.dat"
+  paramCardSetup tpath Octet p = do 
     templates <- directoryGroup tpath
     return $ ( renderTemplateGroup
                  templates
@@ -31,7 +31,7 @@ instance Model Singlet where
                  , ("wTop", (printf "%.4e" (gammaTop mtop (mhh p) (gtu p)) :: String))
                  , ("WHH" , (printf "%.4e" (gammaHH (mhh p) (gbd p)) :: String))
                  ]
-                 (paramCard4Model Singlet  ) ) ++ "\n\n\n"
+                 (paramCard4Model Octet  ) ) ++ "\n\n\n"
   briefParamShow p 
     = ("M" ++ show (mhh p)
        ++ "GT" ++ show (gtu p)  
@@ -48,6 +48,6 @@ gammaTop :: Double   -- ^ mtop
             -> Double   -- ^ mhh  
             -> Double   -- ^ gtu
             -> Double
-gammaTop mt mhh gtu = gtu^(2::Int) / (62.0*pi)* (mt^(2::Int) - mhh^(2::Int))^(2::Int) / (mt^(3::Int))
+gammaTop mt mhh gtu = 4.0 / 3.0 * gtu^(2::Int) / (62.0*pi)* (mt^(2::Int) - mhh^(2::Int))^(2::Int) / (mt^(3::Int))
                       + smgammatop 
     where smgammatop = 1.508336
