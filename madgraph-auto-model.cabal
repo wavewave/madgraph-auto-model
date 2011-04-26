@@ -1,5 +1,5 @@
 Name:		madgraph-auto-model 
-Version:	0.1.4.1
+Version:	0.1.4.2
 Synopsis:	madgraph-auto-model
 Description: 	madgraph-auto-model
 License: 	GPL-3
@@ -14,7 +14,7 @@ Library
   hs-source-dirs: src
   ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind
   ghc-prof-options: -caf-all -auto-all
-  Build-Depends: base>4, mtl>2, filepath > 1, madgraph-auto > 0.3.7, 
+  Build-Depends: base>4, mtl>2, filepath > 1, madgraph-auto > 0.4, 
                  HStringTemplate, HStringTemplateHelpersIW, 
                  MSSMType, pureMD5, bytestring, filepath
   Exposed-Modules: 
