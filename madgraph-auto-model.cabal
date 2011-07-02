@@ -16,7 +16,7 @@ Library
   ghc-prof-options: -caf-all -auto-all
   Build-Depends: base>4, mtl>2, filepath > 1, madgraph-auto > 0.5, 
                  HStringTemplate, HStringTemplateHelpersIW, 
-                 MSSMType, pureMD5, bytestring, filepath, parsec
+                 MSSMType, pureMD5, bytestring, filepath, parsec > 3
   Exposed-Modules: 
                    HEP.Automation.MadGraph.ModelParser
                    HEP.Automation.MadGraph.Model.Common
