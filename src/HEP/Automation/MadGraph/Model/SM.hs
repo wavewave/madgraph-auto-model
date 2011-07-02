@@ -16,11 +16,15 @@ instance Model SM where
                      deriving Show 
   briefShow SM = "SM"
   modelName SM = "sm"
+  modelFromString str = case str of 
+                          "sm" -> Just SM 
+                          _ -> Nothing
   paramCard4Model SM   = "param_card_sm.dat"
   paramCardSetup tpath SM SMParam = do  
     str <- readFile (tpath </> paramCard4Model SM ++ ".st" )  
     return str
   briefParamShow  SMParam = "" 
+  interpreteParam str = SMParam
 
 data SMHiggs = SMHiggs 
         deriving Show
