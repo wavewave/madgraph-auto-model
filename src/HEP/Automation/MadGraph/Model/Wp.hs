@@ -2,6 +2,9 @@
 
 module HEP.Automation.MadGraph.Model.Wp where
 
+import Control.Monad.Identity
+
+import Text.Parsec 
 import Text.Printf
 
 import Text.StringTemplate
@@ -18,6 +21,9 @@ instance Model Wp where
     deriving Show
   briefShow Wp = "Wp"
   modelName Wp = "fvwp200_MG"
+  modelFromString str = case str of 
+                          "fvwp200_MG" -> Just Wp
+                          _ -> Nothing
   paramCard4Model Wp   = "param_card_wP.dat"
   paramCardSetup tpath Wp (WpParam m g) = do 
     templates <- directoryGroup tpath 
@@ -28,6 +34,18 @@ instance Model Wp where
                  , ("widthWp"      , (printf "%.4e" (gammaWpZp m g) :: String)) ]  
                  (paramCard4Model Wp)  ) ++ "\n\n\n"
   briefParamShow (WpParam  m g) = "M"++show m++"G"++show g
+  interpreteParam str = let r = parse wpparse "" str 
+                        in case r of 
+                          Right param -> param 
+                          Left err -> error (show err)
+
+wpparse :: ParsecT String () Identity (ModelParam Wp) 
+wpparse = do 
+  char 'M' 
+  massstr <- many1 (oneOf "+-0123456789.")
+  char 'G'
+  gstr <- many1 (oneOf "+-0123456789.")
+  return (WpParam (read massstr) (read gstr))
 
 gammaWpZp :: Double -> Double -> Double            
 gammaWpZp mass coup = 
