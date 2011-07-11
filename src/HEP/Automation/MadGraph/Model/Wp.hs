@@ -20,6 +20,7 @@ instance Model Wp where
   data ModelParam Wp = WpParam { massWp :: Double, gRWp :: Double } 
     deriving Show
   briefShow Wp = "Wp"
+  madgraphVersion _ = MadGraph4
   modelName Wp = "fvwp200_MG"
   modelFromString str = case str of 
                           "fvwp200_MG" -> Just Wp

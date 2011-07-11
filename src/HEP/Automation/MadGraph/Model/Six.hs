@@ -18,6 +18,7 @@ instance Model Six where
   data ModelParam Six = SixParam { massSix :: Double, gRSix :: Double } 
                       deriving Show 
   briefShow Six = "Six"
+  madgraphVersion _ = MadGraph5
   modelName Six = "sextets_fv"
   paramCard4Model Six  = "param_card_six.dat"  
   paramCardSetup tpath Six (SixParam m g) = do 

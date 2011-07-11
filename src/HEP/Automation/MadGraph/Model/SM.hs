@@ -15,6 +15,7 @@ instance Model SM where
   data ModelParam SM = SMParam 
                      deriving Show 
   briefShow SM = "SM"
+  madgraphVersion _ = MadGraph5
   modelName SM = "sm"
   modelFromString str = case str of 
                           "sm" -> Just SM 

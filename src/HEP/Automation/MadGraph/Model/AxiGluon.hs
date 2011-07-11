@@ -27,6 +27,7 @@ instance Model AxiGluon where
                                              gAt :: Double }  
                            deriving Show 
   briefShow AxiGluon = "Axi"
+  madgraphVersion _ = MadGraph4
   modelName AxiGluon = "Axigluon_AV_MG"
   modelFromString str = case str of 
                           "Axigluon_AV_MG" -> Just AxiGluon

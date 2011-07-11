@@ -22,6 +22,7 @@ instance Model ZpH where
   data ModelParam ZpH = ZpHParam { massZp :: Double, gRZp :: Double } 
                       deriving Show
   briefShow ZpH = "Zp"
+  madgraphVersion _ = MadGraph4
   modelName ZpH = "zHorizontal_MG"
   modelFromString str = case str of 
                           "zHorizontal_MG" -> Just ZpH

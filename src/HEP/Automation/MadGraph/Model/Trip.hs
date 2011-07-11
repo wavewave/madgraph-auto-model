@@ -18,6 +18,7 @@ instance Model Trip where
   data ModelParam Trip = TripParam { massTrip :: Double, gRTrip :: Double  } 
                        deriving Show 
   briefShow Trip = "Trip"
+  madgraphVersion _ = MadGraph5
   modelName Trip = "triplets_fv"
   paramCard4Model Trip = "param_card_trip.dat" 
   paramCardSetup tpath Trip (TripParam m g) = do 
