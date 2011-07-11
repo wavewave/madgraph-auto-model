@@ -32,10 +32,10 @@ Library
                    HEP.Automation.MadGraph.Model.ZpHFull
                    HEP.Automation.MadGraph.Model.Singlet
                    HEP.Automation.MadGraph.Model.Octet
---                   HEP.Automation.MadGraph.Model.C1S
+                   HEP.Automation.MadGraph.Model.C1S
                    HEP.Automation.MadGraph.Model.C1V
---                   HEP.Automation.MadGraph.Model.C8S
---                   HEP.Automation.MadGraph.Model.C8V
+                   HEP.Automation.MadGraph.Model.C8S
+                   HEP.Automation.MadGraph.Model.C8V
 --                   HEP.Automation.MadGraph.Model.FQ8C1V
 --                   HEP.Automation.MadGraph.Model.FU8C1V
 --                   HEP.Automation.MadGraph.Model.SChanC1V

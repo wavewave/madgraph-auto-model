@@ -1,6 +1,6 @@
 {-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts #-}
 
-module HEP.Automation.MadGraph.Model.ZpH where
+module HEP.Automation.MadGraph.Model.C8S where
 
 import Text.Printf
 
@@ -15,47 +15,44 @@ import HEP.Automation.MadGraph.Model.Common
 
 import System.FilePath ((</>))
 
-data ZpH = ZpH
+data C8S = C8S
          deriving Show
 
-instance Model ZpH where
-  data ModelParam ZpH = ZpHParam { massZp :: Double, gRZp :: Double } 
+instance Model C8S where
+  data ModelParam C8S = C8SParam { mnp :: Double, gnpR :: Double, gnpL :: Double } 
                       deriving Show
-  briefShow ZpH = "Zp"
-  madgraphVersion _ = MadGraph4
-  modelName ZpH = "zHorizontal_MG"
+  briefShow _ = "C8S"
+  madgraphVersion _ = MadGraph5
+  modelName _ = "C8S_UFO"
   modelFromString str = case str of 
-                          "zHorizontal_MG" -> Just ZpH
+                          "C8S_UFO" -> Just C8S
                           _ -> Nothing
-  paramCard4Model ZpH  = "param_card_zHorizontal.dat" 
-  paramCardSetup tpath ZpH (ZpHParam m g) = do 
+  paramCard4Model C8S  = "param_card_C8S.dat" 
+  paramCardSetup tpath C8S (C8SParam m gR gL) = do 
     templates <- directoryGroup tpath 
     return $ ( renderTemplateGroup
                  templates
-                 [ ("masszp"       , (printf "%.4e" m :: String))
-                 , ("gRoverSqrtTwo"  , (printf "%.4e" (g / (sqrt 2.0)) :: String))
-                 , ("widthzp"      , (printf "%.4e" (gammaWpZp m g) :: String)) ]
-                 (paramCard4Model ZpH) ) ++ "\n\n\n"
-  briefParamShow (ZpHParam m g) = "M"++show m++"G"++show g 
-  interpreteParam str = let r = parse zphparse "" str 
+                 [ ("mnp"  , (printf "%.4e" m :: String))
+                 , ("gnpR" , (printf "%.4e" gR :: String))
+                 , ("gnpL" , (printf "%.4e" gL :: String)) ]
+                 (paramCard4Model C8S) ) ++ "\n\n\n"
+  briefParamShow (C8SParam m gR gL) = "M"++show m++"GR"++show gR++"GL"++show gL
+  interpreteParam str = let r = parse c8sparse "" str 
                         in case r of 
                           Right param -> param 
                           Left err -> error (show err)
 
-zphparse :: ParsecT String () Identity (ModelParam ZpH) 
-zphparse = do 
+c8sparse :: ParsecT String () Identity (ModelParam C8S) 
+c8sparse = do 
   char 'M' 
   massstr <- many1 (oneOf "+-0123456789.")
-  char 'G'
-  gstr <- many1 (oneOf "+-0123456789.")
-  return (ZpHParam (read massstr) (read gstr))
+  string "GR"
+  grstr <- many1 (oneOf "+-0123456789.")
+  string "GL"
+  glstr <- many1 (oneOf "+-0123456789.")
+  return (C8SParam (read massstr) (read grstr) (read glstr))
 
 
-
-gammaWpZp :: Double -> Double -> Double            
-gammaWpZp mass coup = 
-  let r = mtop^(2 :: Int)/ mass^(2 :: Int)  
-  in  coup^(2 :: Int) / (16.0 * pi) *mass*( 1.0 - 1.5 * r + 0.5 * r^(3 :: Int))
 
 
 
