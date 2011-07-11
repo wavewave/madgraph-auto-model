@@ -16,6 +16,7 @@ modelParse "Axigluon_AV_MG" = Just (ModelBox AxiGluon)
 modelParse "DummyModel"     = Just (ModelBox DummyModel)
 modelParse "zHorizontal_MG" = Just (ModelBox ZpH)
 modelParse "fvwp200_MG"     = Just (ModelBox Wp) 
+modelParse "C1V_UFO"        = Just (ModelBox C1V)
 modelParse "sm"             = Just (ModelBox SM)
 modelParse _ = Nothing
 
