@@ -7,6 +7,7 @@ import HEP.Automation.MadGraph.Model.SM
 import HEP.Automation.MadGraph.Model.AxiGluon
 import HEP.Automation.MadGraph.Model.ZpH
 import HEP.Automation.MadGraph.Model.Wp
+import HEP.Automation.MadGraph.Model.C1V
 
 data ModelBox = forall a. (Model a) => ModelBox a
 
