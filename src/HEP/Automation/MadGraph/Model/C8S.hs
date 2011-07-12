@@ -34,7 +34,8 @@ instance Model C8S where
                  templates
                  [ ("mnp"  , (printf "%.4e" m :: String))
                  , ("gnpR" , (printf "%.4e" gR :: String))
-                 , ("gnpL" , (printf "%.4e" gL :: String)) ]
+                 , ("gnpL" , (printf "%.4e" gL :: String)) 
+                 , ("wnp"  , (printf "%.4e" (gammanp m gR gL) :: String)) ]
                  (paramCard4Model C8S) ) ++ "\n\n\n"
   briefParamShow (C8SParam m gR gL) = "M"++show m++"GR"++show gR++"GL"++show gL
   interpreteParam str = let r = parse c8sparse "" str 
@@ -52,8 +53,13 @@ c8sparse = do
   glstr <- many1 (oneOf "+-0123456789.")
   return (C8SParam (read massstr) (read grstr) (read glstr))
 
+-- mtop :: Double 
+-- mtop = 172.0
 
-
+gammanp :: Double -> Double -> Double -> Double 
+gammanp m gr gl = 
+  1.0/2.0 * m/(8.0*pi) * (gr^(2::Int)+gl^(2::Int))/2.0
+                       * (1.0-(mtop^(2::Int))/(m^(2::Int)))
 
 
 

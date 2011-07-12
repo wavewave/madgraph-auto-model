@@ -34,7 +34,8 @@ instance Model C1S where
                  templates
                  [ ("mnp"  , (printf "%.4e" m :: String))
                  , ("gnpR" , (printf "%.4e" gR :: String))
-                 , ("gnpL" , (printf "%.4e" gL :: String)) ]
+                 , ("gnpL" , (printf "%.4e" gL :: String))
+                 , ("wnp"  , (printf "%.4e" (gammanp m gR gL) :: String)) ]
                  (paramCard4Model C1S) ) ++ "\n\n\n"
   briefParamShow (C1SParam m gR gL) = "M"++show m++"GR"++show gR++"GL"++show gL
   interpreteParam str = let r = parse c1sparse "" str 
@@ -52,8 +53,13 @@ c1sparse = do
   glstr <- many1 (oneOf "+-0123456789.")
   return (C1SParam (read massstr) (read grstr) (read glstr))
 
+-- mtop :: Double 
+-- mtop = 172.0
 
-
+gammanp :: Double -> Double -> Double -> Double 
+gammanp m gR gL = 
+  3.0 * m/(8.0*pi) * (gR^(2::Int)+gL^(2::Int))/2.0 
+                   * (1.0 - (mtop^(2::Int))/(m^(2::Int))) 
 
 
 

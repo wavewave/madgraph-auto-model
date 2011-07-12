@@ -34,7 +34,8 @@ instance Model C8V where
                  templates
                  [ ("mnp"  , (printf "%.4e" m :: String))
                  , ("gnpR" , (printf "%.4e" gR :: String))
-                 , ("gnpL" , (printf "%.4e" gL :: String)) ]
+                 , ("gnpL" , (printf "%.4e" gL :: String)) 
+                 , ("wnp"  , (printf "%.4e" (gammanp m gR gL) :: String)) ]
                  (paramCard4Model C8V) ) ++ "\n\n\n"
   briefParamShow (C8VParam m gR gL) = "M"++show m++"GR"++show gR++"GL"++show gL
   interpreteParam str = let r = parse c8vparse "" str 
@@ -52,6 +53,15 @@ c8vparse = do
   glstr <- many1 (oneOf "+-0123456789.")
   return (C8VParam (read massstr) (read grstr) (read glstr))
 
+-- mtop :: Double 
+-- mtop = 172.0
+
+gammanp :: Double -> Double -> Double -> Double 
+gammanp m gr gl = 
+  1.0/6.0 * m/(4.0*pi) * (gr^(2::Int)+gl^(2::Int))/2.0 
+                       * (1.0-(mtop^(2::Int))/(m^(2::Int)))^(2::Int)
+                       * (1.0+0.5*(mtop^(2::Int))/(m^(2::Int)))
+                      
 
 
 
