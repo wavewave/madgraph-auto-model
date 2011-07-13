@@ -1,6 +1,6 @@
 {-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts #-}
 
-module HEP.Automation.MadGraph.Model.ZpH where
+module HEP.Automation.MadGraph.Model.SChanC8V where
 
 import Text.Printf
 
@@ -15,47 +15,69 @@ import HEP.Automation.MadGraph.Model.Common
 
 import System.FilePath ((</>))
 
-data ZpH = ZpH
+data SChanC8V = SChanC8V
          deriving Show
 
-instance Model ZpH where
-  data ModelParam ZpH = ZpHParam { massZp :: Double, gRZp :: Double } 
+instance Model SChanC8V where
+  data ModelParam SChanC8V = SChanC8VParam { mnp   :: Double
+                                           , gnpqR :: Double 
+                                           , gnpqL :: Double
+                                           , gnptR :: Double
+                                           , gnptL :: Double } 
                       deriving Show
-  briefShow ZpH = "Zp"
-  madgraphVersion _ = MadGraph4
-  modelName ZpH = "zHorizontal_MG"
+  briefShow SChanC8V = "SChC8V"
+  madgraphVersion _ = MadGraph5
+  modelName SChanC8V = "schanC8V_UFO"
   modelFromString str = case str of 
-                          "zHorizontal_MG" -> Just ZpH
+                          "schanC8V_UFO" -> Just SChanC8V
                           _ -> Nothing
-  paramCard4Model ZpH  = "param_card_zHorizontal.dat" 
-  paramCardSetup tpath ZpH (ZpHParam m g) = do 
+  paramCard4Model SChanC8V  = "param_card_schanC8V.dat" 
+  paramCardSetup tpath SChanC8V (SChanC8VParam m gqR gqL gtR gtL) = do 
     templates <- directoryGroup tpath 
     return $ ( renderTemplateGroup
                  templates
-                 [ ("masszp"       , (printf "%.4e" m :: String))
-                 , ("gRoverSqrtTwo"  , (printf "%.4e" (g / (sqrt 2.0)) :: String))
-                 , ("widthzp"      , (printf "%.4e" (gammaWpZp m g) :: String)) ]
-                 (paramCard4Model ZpH) ) ++ "\n\n\n"
-  briefParamShow (ZpHParam m g) = "M"++show m++"G"++show g 
-  interpreteParam str = let r = parse zphparse "" str 
+                 [ ("mnp"  , (printf "%.4e" m :: String))
+                 , ("gnpqR", (printf "%.4e" gqR :: String))
+                 , ("gnpqL", (printf "%.4e" gqL :: String))
+                 , ("gnptR", (printf "%.4e" gtR :: String))
+                 , ("gnptL", (printf "%.4e" gtL :: String)) 
+                 , ("wnp",   (printf "%.4e" (gammanp m gqR gqL gtR gtL) :: String)) ]
+                 (paramCard4Model SChanC8V) ) ++ "\n\n\n"
+  briefParamShow (SChanC8VParam m gqR gqL gtR gtL) 
+    ="M"++show m++"QR"++show gqR++"QL"++show gqL++"TR"++show gtR++"TL"++show gtL 
+  interpreteParam str = let r = parse schanc8vparse "" str 
                         in case r of 
                           Right param -> param 
                           Left err -> error (show err)
 
-zphparse :: ParsecT String () Identity (ModelParam ZpH) 
-zphparse = do 
+schanc8vparse :: ParsecT String () Identity (ModelParam SChanC8V) 
+schanc8vparse = do 
   char 'M' 
   massstr <- many1 (oneOf "+-0123456789.")
-  char 'G'
-  gstr <- many1 (oneOf "+-0123456789.")
-  return (ZpHParam (read massstr) (read gstr))
+  string "QR"
+  gqrstr <- many1 (oneOf "+-0123456789.")
+  string "QL"
+  gqlstr <- many1 (oneOf "+-0123456789.")
+  string "TR"
+  gtrstr <- many1 (oneOf "+-0123456789.")
+  string "TL"
+  gtlstr <- many1 (oneOf "+-0123456789.")
+  return (SChanC8VParam (read massstr) 
+                        (read gqrstr) (read gqlstr)
+                        (read gtrstr) (read gtlstr))
 
+gammanp :: Double -> Double -> Double -> Double -> Double -> Double   
+gammanp m gqR gqL gtR gtL = 
+  let r = mtop^(2 :: Int)/ m^(2 :: Int)  
+  in  1.0/(24.0*pi)*m*(  
+                         ( 
+                           (gtR^(2::Int)+gtL^(2::Int))/2.0*(1.0-r)
+                           +3.0*gtL*gtR*r
+                         )*sqrt (1.0-4.0*r)
+                         + (gtR^(2::Int)+gtL^(2::Int))/2.0
+                         + 4.0*(gqR^(2::Int)+gqL^(2::Int))/2.0 
+                      )
 
-
-gammaWpZp :: Double -> Double -> Double            
-gammaWpZp mass coup = 
-  let r = mtop^(2 :: Int)/ mass^(2 :: Int)  
-  in  coup^(2 :: Int) / (16.0 * pi) *mass*( 1.0 - 1.5 * r + 0.5 * r^(3 :: Int))
 
 
 

@@ -1,5 +1,5 @@
 Name:		madgraph-auto-model 
-Version:	0.2.4.0
+Version:	0.2.5.0
 Synopsis:	madgraph-auto-model
 Description: 	madgraph-auto-model
 License: 	GPL-3
@@ -38,5 +38,5 @@ Library
                    HEP.Automation.MadGraph.Model.C8V
 --                   HEP.Automation.MadGraph.Model.FQ8C1V
 --                   HEP.Automation.MadGraph.Model.FU8C1V
---                   HEP.Automation.MadGraph.Model.SChanC1V
---                   HEP.Automation.MadGraph.Model.SChanC8V
+                   HEP.Automation.MadGraph.Model.SChanC1V
+                   HEP.Automation.MadGraph.Model.SChanC8V
