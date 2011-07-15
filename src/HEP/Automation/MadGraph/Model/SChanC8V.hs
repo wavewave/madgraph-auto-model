@@ -59,19 +59,19 @@ instance Model SChanC8V where
 schanc8vparse :: ParsecT String () Identity (ModelParam SChanC8V) 
 schanc8vparse = do 
   char 'M' 
-  massstr <- many1 (oneOf "+-0123456789.")
+  massstr <- many1 (oneOf "+-0123456789.e")
   string "QR"
-  gqrstr <- many1 (oneOf "+-0123456789.")
+  gqrstr <- many1 (oneOf "+-0123456789.e")
   string "QL"
-  gqlstr <- many1 (oneOf "+-0123456789.")
+  gqlstr <- many1 (oneOf "+-0123456789.e")
   string "BR"
-  gbrstr <- many1 (oneOf "+-0123456789.")
+  gbrstr <- many1 (oneOf "+-0123456789.e")
   string "BL"
-  gblstr <- many1 (oneOf "+-0123456789.")
+  gblstr <- many1 (oneOf "+-0123456789.e")
   string "TR"
-  gtrstr <- many1 (oneOf "+-0123456789.")
+  gtrstr <- many1 (oneOf "+-0123456789.e")
   string "TL"
-  gtlstr <- many1 (oneOf "+-0123456789.")
+  gtlstr <- many1 (oneOf "+-0123456789.e")
   return (SChanC8VParam (read massstr) 
                         (read gqrstr) (read gqlstr)
                         (read gbrstr) (read gblstr)
