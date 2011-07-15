@@ -15,6 +15,7 @@ import HEP.Automation.MadGraph.Model.C8S
 import HEP.Automation.MadGraph.Model.SChanC1V
 import HEP.Automation.MadGraph.Model.SChanC8V
 import HEP.Automation.MadGraph.Model.SChanC8Vschmaltz
+import HEP.Automation.MadGraph.Model.FU8C1V
 
 data ModelBox = forall a. (Model a) => ModelBox a
 
@@ -32,6 +33,7 @@ modelParse "C8S_UFO"        = Just (ModelBox C8S)
 modelParse "schanC1V_UFO"   = Just (ModelBox SChanC1V)
 modelParse "schanC8V_UFO"   = Just (ModelBox SChanC8V)
 modelParse "schanC8Vschmaltz_UFO" = Just (ModelBox SChanC8Vschmaltz)
+modelParse "FU8C1V_UFO"     = Just (ModelBox FU8C1V)
 modelParse "sm"             = Just (ModelBox SM)
 modelParse _ = Nothing
 
