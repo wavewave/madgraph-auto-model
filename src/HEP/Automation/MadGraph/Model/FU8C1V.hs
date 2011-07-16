@@ -88,7 +88,11 @@ wv67 :: ModelParam FU8C1V -> Double
 wv67 = wv45 
 
 wv8 :: ModelParam FU8C1V -> Double 
-wv8 FU8C1VParam{..} =  gMFV^(2::Int) / (48.0*pi)*m8* ( 2.0*(1.0+4.0*eta*(mtop/higgv)^(2::Int))^(2::Int)*(1.0-r)*sqrt (1.0-4.0*r) + 1.0)
+wv8 FU8C1VParam{..} =  if m8 > 2.0*mtop 
+                          then gMFV^(2::Int) / (48.0*pi)*m8* ( 2.0*(1.0+4.0*eta*(mtop/higgv)^(2::Int))^(2::Int)
+                               *(1.0-r)*sqrt (1.0-4.0*r) + 1.0)
+                          else gMFV^(2::Int) / (48.0*pi)*m8 
+
   where m8 = m8mass mMFV dmMFV
         r = mtop^(2::Int) / m8^(2::Int)
         higgv = 246.0
