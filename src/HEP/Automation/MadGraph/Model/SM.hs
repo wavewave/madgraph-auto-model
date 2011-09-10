@@ -1,4 +1,5 @@
-{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts #-}
+{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts, 
+             DeriveDataTypeable, StandaloneDeriving #-}
 
 module HEP.Automation.MadGraph.Model.SM where
 
@@ -8,8 +9,11 @@ import Text.StringTemplate
 import Text.StringTemplate.Helpers
 import System.FilePath ((</>))
 
+import Data.Typeable
+import Data.Data
+
 data SM = SM 
-        deriving Show
+        deriving (Show, Typeable, Data)
 
 instance Model SM where
   data ModelParam SM = SMParam 
@@ -25,10 +29,22 @@ instance Model SM where
     str <- readFile (tpath </> paramCard4Model SM ++ ".st" )  
     return str
   briefParamShow  SMParam = "" 
-  interpreteParam str = SMParam
+  interpreteParam _ = SMParam
+
+
+sMTr :: TypeRep 
+sMTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.SM.SM") []
+
+instance Typeable (ModelParam SM) where
+  typeOf _ = mkTyConApp modelParamTc [sMTr]
+
+deriving instance Data (ModelParam SM)
+
+-----------------------------------------------------
+-----------------------------------------------------
 
 data SMHiggs = SMHiggs 
-        deriving Show
+        deriving (Show, Typeable, Data)
 
 instance Model SMHiggs where
   data ModelParam SMHiggs = SMHiggsParam { mhiggs :: Double, whiggs :: Double } 
@@ -44,3 +60,15 @@ instance Model SMHiggs where
                  , ("whiggs", (printf "%.4e" (whiggs p) :: String) ) ] 
                  (paramCard4Model SMHiggs) ) ++ "\n\n\n"
   briefParamShow  (SMHiggsParam m w)  = "MH" ++ show m ++ "WH" ++ show w 
+  madgraphVersion = error "madgraphVersion undefined in SMHiggs"
+  modelFromString = error "modelFromString undefined in SMHiggs"
+  interpreteParam = error "interpreteParam undefined in SMHiggs"
+
+
+sMHiggsTr :: TypeRep 
+sMHiggsTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.SM.SMHiggs") []
+
+instance Typeable (ModelParam SMHiggs) where
+  typeOf _ = mkTyConApp modelParamTc [sMHiggsTr]
+
+deriving instance Data (ModelParam SMHiggs)

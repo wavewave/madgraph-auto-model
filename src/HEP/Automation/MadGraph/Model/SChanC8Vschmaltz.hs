@@ -1,7 +1,12 @@
 {-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE DeriveDataTypeable, StandaloneDeriving #-}
+
 
 module HEP.Automation.MadGraph.Model.SChanC8Vschmaltz where
+
+import Data.Typeable
+import Data.Data
 
 import Text.Printf
 
@@ -14,10 +19,8 @@ import Text.StringTemplate.Helpers
 import HEP.Automation.MadGraph.Model
 import HEP.Automation.MadGraph.Model.Common
 
-import System.FilePath ((</>))
-
 data SChanC8Vschmaltz = SChanC8Vschmaltz
-         deriving Show
+         deriving (Show, Typeable, Data)
 
 instance Model SChanC8Vschmaltz where
   data ModelParam SChanC8Vschmaltz = 
@@ -75,6 +78,13 @@ gammanp SChanC8VschmaltzParam{..} =
                                                          mnp^(2::Int))**1.5
 
 
+sChanC8VschmaltzTr :: TypeRep 
+sChanC8VschmaltzTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.SChanC8Vschmaltz.SChanC8Vschmaltz") []
+
+instance Typeable (ModelParam SChanC8Vschmaltz) where
+  typeOf _ = mkTyConApp modelParamTc [sChanC8VschmaltzTr]
+
+deriving instance Data (ModelParam SChanC8Vschmaltz)
 
 
 

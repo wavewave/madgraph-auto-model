@@ -1,6 +1,10 @@
-{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts #-}
+{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts, 
+             DeriveDataTypeable, StandaloneDeriving #-}
 
 module HEP.Automation.MadGraph.Model.ZpH where
+
+import Data.Typeable
+import Data.Data
 
 import Text.Printf
 
@@ -13,10 +17,8 @@ import Text.StringTemplate.Helpers
 import HEP.Automation.MadGraph.Model
 import HEP.Automation.MadGraph.Model.Common
 
-import System.FilePath ((</>))
-
 data ZpH = ZpH
-         deriving Show
+         deriving (Show, Typeable, Data)
 
 instance Model ZpH where
   data ModelParam ZpH = ZpHParam { massZp :: Double, gRZp :: Double } 
@@ -50,13 +52,18 @@ zphparse = do
   gstr <- many1 (oneOf "+-0123456789.")
   return (ZpHParam (read massstr) (read gstr))
 
-
-
 gammaWpZp :: Double -> Double -> Double            
 gammaWpZp mass coup = 
   let r = mtop^(2 :: Int)/ mass^(2 :: Int)  
   in  coup^(2 :: Int) / (16.0 * pi) *mass*( 1.0 - 1.5 * r + 0.5 * r^(3 :: Int))
 
+zpHTr :: TypeRep 
+zpHTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.ZpH.ZpH") []
+
+instance Typeable (ModelParam ZpH) where
+  typeOf _ = mkTyConApp modelParamTc [zpHTr]
+
+deriving instance Data (ModelParam ZpH)
 
 
 

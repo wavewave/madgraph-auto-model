@@ -1,6 +1,10 @@
-{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts #-}
+{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts, 
+             DeriveDataTypeable, StandaloneDeriving #-}
 
 module HEP.Automation.MadGraph.Model.AxiGluon where
+
+import Data.Typeable
+import Data.Data
 
 import Text.Printf
 
@@ -11,12 +15,10 @@ import Control.Monad.Identity
 import Text.StringTemplate
 import Text.StringTemplate.Helpers
 
-import System.FilePath ((</>))
-
 import HEP.Automation.MadGraph.Model
 
 data AxiGluon = AxiGluon
-              deriving Show
+              deriving (Show, Typeable, Data)
 
 
 instance Model AxiGluon where
@@ -66,11 +68,16 @@ axigluonparse = do
   gatstr <- many1 ( oneOf "+-0123456789." )
   return (AxiGluonParam (read massstr) (read gvqstr) (read gvtstr) 
                         (read gaqstr) (read gatstr))
- 
-
 
 gammaAxigluon :: Double -> Double -> Double -> Double -> Double -> Double -> Double
 gammaAxigluon  alphas mass gvq gvt gaq gat = 
   alphas / 3.0 * mass * (gvt^(2 :: Int) + gat^(2 :: Int) 
                          + 2.0 * ( gvq^(2 :: Int) + gaq^(2 :: Int) ) )
 
+axiGluonTr :: TypeRep 
+axiGluonTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.AxiGluon.AxiGluon") []
+
+instance Typeable (ModelParam AxiGluon) where
+  typeOf _ = mkTyConApp modelParamTc [axiGluonTr]
+
+deriving instance Data (ModelParam AxiGluon)

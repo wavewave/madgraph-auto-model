@@ -1,8 +1,12 @@
-{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts #-}
+{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts, 
+             DeriveDataTypeable, StandaloneDeriving #-}
 
 module HEP.Automation.MadGraph.Model.Wp where
 
 import Control.Monad.Identity
+
+import Data.Typeable
+import Data.Data
 
 import Text.Parsec 
 import Text.Printf
@@ -14,7 +18,7 @@ import HEP.Automation.MadGraph.Model
 import HEP.Automation.MadGraph.Model.Common
 
 data Wp = Wp
-        deriving Show
+        deriving (Show, Typeable, Data)
            
 instance Model Wp where
   data ModelParam Wp = WpParam { massWp :: Double, gRWp :: Double } 
@@ -52,3 +56,11 @@ gammaWpZp :: Double -> Double -> Double
 gammaWpZp mass coup = 
   let r = mtop^(2 :: Int)/ mass^(2 :: Int)  
   in  coup^(2 :: Int) / (16.0 * pi) *mass*( 1.0 - 1.5 * r + 0.5 * r^(3 :: Int))
+
+wpTr :: TypeRep 
+wpTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.Wp.Wp") []
+
+instance Typeable (ModelParam Wp) where
+  typeOf _ = mkTyConApp modelParamTc [wpTr]
+
+deriving instance Data (ModelParam Wp)

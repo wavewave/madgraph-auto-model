@@ -1,6 +1,10 @@
-{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts #-}
+{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts, 
+             DeriveDataTypeable, StandaloneDeriving #-}
 
 module HEP.Automation.MadGraph.Model.ZpHFull where
+
+import Data.Typeable
+import Data.Data
 
 import Text.Printf
 
@@ -11,7 +15,7 @@ import HEP.Automation.MadGraph.Model
 import HEP.Automation.MadGraph.Model.Common
 
 data ZpHFull = ZpHFull
-  deriving Show
+  deriving (Show, Typeable, Data)
 
 instance Model ZpHFull where
   data ModelParam ZpHFull = ZpHFullParam { mZp :: Double,  
@@ -36,6 +40,10 @@ instance Model ZpHFull where
     = ("M" ++ show (mZp p)
        ++ "GT" ++ show (gHtu p)  
        ++ "GB" ++ show (gHbd p))
+  madgraphVersion = error "madgraphVersion is not defined in ZpHFull"
+  modelFromString = error "modelFromString is not defined in ZpHFull"
+  interpreteParam = error "interpreteParam is not defined in ZpHFull"
+
 
 -- | decay width of Zprime
 gammaZp :: Double       -- ^ mZp
@@ -53,3 +61,11 @@ gammaTop mt mzp ghtu = (ghtu^(2::Int) / (64.0*pi)* mt^(3::Int) / (mzp*mzp)
                           * ( 1+ 2.0 * mzp*mzp / (mt*mt) ))
                        + smgammatop 
     where smgammatop = 1.508336
+
+zpHFullTr :: TypeRep 
+zpHFullTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.ZpHFull.ZpHFull") []
+
+instance Typeable (ModelParam ZpHFull) where
+  typeOf _ = mkTyConApp modelParamTc [zpHFullTr]
+
+deriving instance Data (ModelParam ZpHFull)

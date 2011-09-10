@@ -1,6 +1,10 @@
-{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts #-}
+{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts, 
+             DeriveDataTypeable, StandaloneDeriving #-}
 
 module HEP.Automation.MadGraph.Model.Octet where
+
+import Data.Typeable
+import Data.Data
 
 import Text.Printf
 
@@ -11,7 +15,7 @@ import HEP.Automation.MadGraph.Model
 import HEP.Automation.MadGraph.Model.Common
 
 data Octet = Octet
-  deriving Show
+  deriving (Show, Typeable, Data)
 
 instance Model Octet where
   data ModelParam Octet = OctetParam { mhh :: Double,  
@@ -36,18 +40,29 @@ instance Model Octet where
     = ("M" ++ show (mhh p)
        ++ "GT" ++ show (gtu p)  
        ++ "GB" ++ show (gbd p))
+  madgraphVersion = error "madgraphVersion is not defined in Octet"
+  modelFromString = error "modelFromString is not defined in Octet"
+  interpreteParam = error "interpreteParam is not defined in Octet"
 
 -- | decay width of Zprime
 gammaHH :: Double       -- ^ mhh
         -> Double       -- ^ gbd
         -> Double 
-gammaHH mhh gbd = gbd^(2::Int) / (16.0*pi) * mhh -- 0.5*sqrt2 => 1.49027759
+gammaHH mhh' gbd' = gbd'^(2::Int) / (16.0*pi) * mhh' -- 0.5*sqrt2 => 1.49027759
 
 -- | additional decay width of top
 gammaTop :: Double   -- ^ mtop 
             -> Double   -- ^ mhh  
             -> Double   -- ^ gtu
             -> Double
-gammaTop mt mhh gtu = 4.0 / 3.0 * gtu^(2::Int) / (62.0*pi)* (mt^(2::Int) - mhh^(2::Int))^(2::Int) / (mt^(3::Int))
+gammaTop mt' mhh' gtu' = 4.0 / 3.0 * gtu'^(2::Int) / (62.0*pi)* (mt'^(2::Int) - mhh'^(2::Int))^(2::Int) / (mt'^(3::Int))
                       + smgammatop 
     where smgammatop = 1.508336
+
+octetTr :: TypeRep 
+octetTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.Octet.Octet") []
+
+instance Typeable (ModelParam Octet) where
+  typeOf _ = mkTyConApp modelParamTc [octetTr]
+
+deriving instance Data (ModelParam Octet)

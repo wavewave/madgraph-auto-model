@@ -1,6 +1,10 @@
-{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts #-}
+{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts, 
+             DeriveDataTypeable, StandaloneDeriving #-}
 
 module HEP.Automation.MadGraph.Model.WpZpFull where
+
+import Data.Typeable
+import Data.Data
 
 import Text.Printf
 
@@ -10,7 +14,7 @@ import Text.StringTemplate.Helpers
 import HEP.Automation.MadGraph.Model
 
 data WpZpFull = WpZpFull
-  deriving Show
+  deriving (Show, Typeable, Data)
 
 instance Model WpZpFull where
   data ModelParam WpZpFull = WpZpFullParam { mWp :: Double,
@@ -44,22 +48,31 @@ instance Model WpZpFull where
                  ]
                  (paramCard4Model WpZpFull)  ) ++ "\n\n\n"
  -- Decay width is not right. 
-  briefParamShow (WpZpFullParam mWp mZp gWpdt gWpub gZpbb gZptt gZpuu gZpdd)
-    = ("MWP"++show mWp 
-       ++ "MZP" ++ show mZp 
-       ++ "GWPDT" ++ show gWpdt 
-       ++ "GWPUB" ++ show gWpub
-       ++ "GZPBB" ++ show gZpbb
-       ++ "GZPTT" ++ show gZptt
-       ++ "GZPUU" ++ show gZpuu
-       ++ "GZPDD" ++ show gZpdd)
+  briefParamShow (WpZpFullParam mWp' mZp' gWpdt' gWpub' gZpbb' gZptt' gZpuu' gZpdd')
+    = ("MWP"++show mWp' 
+       ++ "MZP" ++ show mZp' 
+       ++ "GWPDT" ++ show gWpdt' 
+       ++ "GWPUB" ++ show gWpub'
+       ++ "GZPBB" ++ show gZpbb'
+       ++ "GZPTT" ++ show gZptt'
+       ++ "GZPUU" ++ show gZpuu'
+       ++ "GZPDD" ++ show gZpdd')
+  madgraphVersion = error "madgraphVersion undefined for WpZpFull"
+  modelFromString = error "modelFromString undefined for WpZpFull"
+  interpreteParam = error "interpreteParam undefined for WpZpFull"
+
 
 gammaWpZpFullBelowTopMass :: Double -> Double -> Double -> Double -> Double -> Double-> (Double,Double)  
-gammaWpZpFullBelowTopMass mWp mZp gWpub gZpuu gZpdd gZpbb = 
-  let gammaWp = gWpub^(2::Int)*(1/(16.0*pi)) * mWp 
-      gammaZp = (gZpuu^(2::Int)+gZpdd^(2::Int)+gZpbb^(2::Int))*(2.0/(16.0*pi))*mZp 
+gammaWpZpFullBelowTopMass mWp' mZp' gWpub' gZpuu' gZpdd' gZpbb' = 
+  let gammaWp = gWpub'^(2::Int)*(1/(16.0*pi)) * mWp' 
+      gammaZp = (gZpuu'^(2::Int)+gZpdd'^(2::Int)+gZpbb'^(2::Int))*(2.0/(16.0*pi))*mZp' 
   in  (gammaWp,gammaZp)
 
+wpZpFullTr :: TypeRep 
+wpZpFullTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.WpZpFull.WpZpFull") []
 
+instance Typeable (ModelParam WpZpFull) where
+  typeOf _ = mkTyConApp modelParamTc [wpZpFullTr]
 
+deriving instance Data (ModelParam WpZpFull)
 

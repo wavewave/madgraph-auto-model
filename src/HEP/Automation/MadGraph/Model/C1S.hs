@@ -1,6 +1,10 @@
-{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts #-}
+{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts, 
+             DeriveDataTypeable, StandaloneDeriving #-}
 
 module HEP.Automation.MadGraph.Model.C1S where
+
+import Data.Typeable
+import Data.Data
 
 import Text.Printf
 
@@ -13,10 +17,8 @@ import Text.StringTemplate.Helpers
 import HEP.Automation.MadGraph.Model
 import HEP.Automation.MadGraph.Model.Common
 
-import System.FilePath ((</>))
-
 data C1S = C1S
-         deriving Show
+         deriving (Show, Typeable, Data)
 
 instance Model C1S where
   data ModelParam C1S = C1SParam { mnp :: Double, gnpR :: Double, gnpL :: Double } 
@@ -60,6 +62,14 @@ gammanp :: Double -> Double -> Double -> Double
 gammanp m gR gL = 
   3.0 * m/(8.0*pi) * (gR^(2::Int)+gL^(2::Int))/2.0 
                    * (1.0 - (mtop^(2::Int))/(m^(2::Int))) 
+
+c1STr :: TypeRep 
+c1STr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.C1S.C1S") []
+
+instance Typeable (ModelParam C1S) where
+  typeOf _ = mkTyConApp modelParamTc [c1STr]
+
+deriving instance Data (ModelParam C1S)
 
 
 

@@ -1,8 +1,12 @@
-{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts #-}
+{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts, 
+             DeriveDataTypeable, StandaloneDeriving #-}
 
 module HEP.Automation.MadGraph.Model.Trip where
 
 import Control.Monad.Identity
+import Data.Typeable
+import Data.Data
+
 import Text.Printf
 import Text.StringTemplate
 import Text.StringTemplate.Helpers
@@ -13,7 +17,7 @@ import HEP.Automation.MadGraph.Model.Exotic
 import HEP.Automation.MadGraph.Model.Common
 
 data Trip = Trip
-          deriving Show
+          deriving (Show, Typeable, Data)
 
 instance Model Trip where
   data ModelParam Trip = TripParam { massTrip :: Double, gRTrip :: Double  } 
@@ -46,3 +50,11 @@ tripparse = do
   char 'G'
   gstr <- many1 (oneOf "+-0123456789.")
   return (TripParam (read massstr) (read gstr))
+
+tripTr :: TypeRep 
+tripTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.Trip.Trip") []
+
+instance Typeable (ModelParam Trip) where
+  typeOf _ = mkTyConApp modelParamTc [tripTr]
+
+deriving instance Data (ModelParam Trip)

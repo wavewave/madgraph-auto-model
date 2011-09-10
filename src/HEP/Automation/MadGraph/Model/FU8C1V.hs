@@ -1,6 +1,11 @@
-{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts, RecordWildCards #-}
+{-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts, 
+             RecordWildCards, StandaloneDeriving, DeriveDataTypeable #-}
+
 
 module HEP.Automation.MadGraph.Model.FU8C1V where
+
+import Data.Typeable
+import Data.Data
 
 import Text.Printf
 
@@ -13,10 +18,8 @@ import Text.StringTemplate.Helpers
 import HEP.Automation.MadGraph.Model
 import HEP.Automation.MadGraph.Model.Common
 
-import System.FilePath ((</>))
-
 data FU8C1V = FU8C1V
-         deriving Show
+         deriving (Show, Typeable, Data)
 
 instance Model FU8C1V where
   data ModelParam FU8C1V = FU8C1VParam { mMFV  :: Double
@@ -97,6 +100,13 @@ wv8 FU8C1VParam{..} =  if m8 > 2.0*mtop
         r = mtop^(2::Int) / m8^(2::Int)
         higgv = 246.0
 
+fU8C1VTr :: TypeRep 
+fU8C1VTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.FU8C1V.FU8C1V") []
+
+instance Typeable (ModelParam FU8C1V) where
+  typeOf _ = mkTyConApp modelParamTc [fU8C1VTr]
+
+deriving instance Data (ModelParam FU8C1V)
 
 
 
