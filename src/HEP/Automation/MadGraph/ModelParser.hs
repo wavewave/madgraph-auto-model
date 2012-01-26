@@ -9,6 +9,7 @@ import HEP.Automation.MadGraph.Model.ZpH
 import HEP.Automation.MadGraph.Model.Wp
 import HEP.Automation.MadGraph.Model.Trip
 import HEP.Automation.MadGraph.Model.C1V
+import HEP.Automation.MadGraph.Model.C1VLowSimple
 import HEP.Automation.MadGraph.Model.C1S 
 import HEP.Automation.MadGraph.Model.C1SLowSimple
 import HEP.Automation.MadGraph.Model.C8V
@@ -28,6 +29,7 @@ modelParse "zHorizontal_MG" = Just (ModelBox ZpH)
 modelParse "fvwp200_MG"     = Just (ModelBox Wp) 
 modelParse "triplets_fv"    = Just (ModelBox Trip)
 modelParse "C1V_UFO"        = Just (ModelBox C1V)
+modelParse "C1VLowSimple_UFO" = Just (ModelBox C1VLowSimple)
 modelParse "C1S_UFO"        = Just (ModelBox C1S)
 modelParse "C1SLowSimple_UFO"  = Just (ModelBox C1SLowSimple)
 modelParse "C8V_UFO"        = Just (ModelBox C8V)

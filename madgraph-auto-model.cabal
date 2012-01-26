@@ -1,5 +1,5 @@
 Name:		madgraph-auto-model 
-Version:	0.3.2
+Version:	0.3.2.999
 Synopsis:	madgraph-auto-model
 Description: 	madgraph-auto-model
 License: 	BSD3
@@ -37,6 +37,7 @@ Library
                    HEP.Automation.MadGraph.Model.C1S
                    HEP.Automation.MadGraph.Model.C1SLowSimple
                    HEP.Automation.MadGraph.Model.C1V
+                   HEP.Automation.MadGraph.Model.C1VLowSimple
                    HEP.Automation.MadGraph.Model.C8S
                    HEP.Automation.MadGraph.Model.C8V
                    HEP.Automation.MadGraph.Model.SChanC1V
