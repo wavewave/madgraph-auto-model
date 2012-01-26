@@ -55,15 +55,15 @@ instance Model C1SLowSimple where
 c1slowsmpparse :: ParsecT String () Identity (ModelParam C1SLowSimple) 
 c1slowsmpparse = do 
   char 'M' 
-  massstr <- many1 (oneOf "+-0123456789.")
+  massstr <- many1 (oneOf "+-0123456789.eE")
   string "GR"
-  grstr <- many1 (oneOf "+-0123456789.")
+  grstr <- many1 (oneOf "+-0123456789.eE")
   string "GL"
-  glstr <- many1 (oneOf "+-0123456789.")
+  glstr <- many1 (oneOf "+-0123456789.eE")
   string "GCR"
-  gcrstr <- many1 (oneOf "+-0123456789.")
+  gcrstr <- many1 (oneOf "+-0123456789.eE")
   string "GCL"
-  gclstr <- many1 (oneOf "+-0123456789.")
+  gclstr <- many1 (oneOf "+-0123456789.eE")
   return (C1SLowSimpleParam (read massstr) (read grstr) (read glstr)
                             (read gcrstr) (read gclstr))
 
