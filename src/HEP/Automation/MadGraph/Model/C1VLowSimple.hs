@@ -61,19 +61,19 @@ instance Model C1VLowSimple where
 c1vlowsmpparse :: ParsecT String () Identity (ModelParam C1VLowSimple) 
 c1vlowsmpparse = do 
   char 'M' 
-  massstr <- many1 (oneOf "+-0123456789.")
+  massstr <- many1 (oneOf "+-0123456789.eE")
   string "GTUR"
-  gtuRstr <- many1 (oneOf "+-0123456789.")
+  gtuRstr <- many1 (oneOf "+-0123456789.eE")
   string "GTUL"
-  gtuLstr <- many1 (oneOf "+-0123456789.")
+  gtuLstr <- many1 (oneOf "+-0123456789.eE")
   string "GUUR"
-  guuRstr <- many1 (oneOf "+-0123456789.")
+  guuRstr <- many1 (oneOf "+-0123456789.eE")
   string "GUUL"
-  guuLstr <- many1 (oneOf "+-0123456789.")
+  guuLstr <- many1 (oneOf "+-0123456789.eE")
   string "GTTR"
-  gttRstr <- many1 (oneOf "+-0123456789.")
+  gttRstr <- many1 (oneOf "+-0123456789.eE")
   string "GTTL"
-  gttLstr <- many1 (oneOf "+-0123456789.")
+  gttLstr <- many1 (oneOf "+-0123456789.eE")
   return (C1VLowSimpleParam (read massstr) (read gtuRstr) (read gtuLstr)
                             (read guuRstr) (read guuLstr) (read gttRstr) (read gttLstr))
 
