@@ -1,22 +1,33 @@
 {-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts, 
              DeriveDataTypeable, StandaloneDeriving #-}
 
+-----------------------------------------------------------------------------
+-- |
+-- Module      : HEP.Automation.MadGraph.Model.AxiGluon
+-- Copyright   : (c) 2011, 2012 Ian-Woo Kim
+--
+-- License     : BSD3
+-- Maintainer  : Ian-Woo Kim <ianwookim@gmail.com>
+-- Stability   : experimental
+-- Portability : GHC
+--
+-- Axigluon model 
+-- 
+-----------------------------------------------------------------------------
+
 module HEP.Automation.MadGraph.Model.AxiGluon where
 
+import Control.Monad.Identity
 import Data.Typeable
 import Data.Data
-
-import Text.Printf
-
 import Text.Parsec
-import Control.Monad.Identity
-
-
+import Text.Printf
 import Text.StringTemplate
 import Text.StringTemplate.Helpers
-
+-- from hep-platform 
 import HEP.Automation.MadGraph.Model
 
+-- | 
 data AxiGluon = AxiGluon
               deriving (Show, Typeable, Data)
 
@@ -81,3 +92,8 @@ instance Typeable (ModelParam AxiGluon) where
   typeOf _ = mkTyConApp modelParamTc [axiGluonTr]
 
 deriving instance Data (ModelParam AxiGluon)
+
+
+
+
+
