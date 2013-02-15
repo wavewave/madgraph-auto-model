@@ -15,16 +15,16 @@ Library
   hs-source-dirs: src
   ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind
   ghc-prof-options: -caf-all -auto-all
-  Build-Depends: base == 4.*, 
-                 mtl == 2.*, 
-                 filepath == 1.3.*, 
+  Build-Depends: base > 4, 
+                 mtl > 2, 
+                 filepath , 
                  madgraph-auto >= 0.6.999 && < 0.8, 
-                 HStringTemplate == 0.6.*, 
-                 HStringTemplateHelpersIW == 0.0.*, 
+                 HStringTemplate > 0.6, 
+                 devadmin, 
                  -- MSSMType, 
-                 pureMD5 == 2.1.*,
-                 bytestring == 0.9.*, 
-                 parsec ==  3.1.*, 
+                 pureMD5 > 2,
+                 bytestring > 0.9, 
+                 parsec >  3.1, 
                  HEPUtil >=0.1.999 && < 0.3
   Exposed-Modules: 
                    HEP.Automation.MadGraph.Process
@@ -54,6 +54,7 @@ Library
                    HEP.Automation.MadGraph.Model.FU8C1V
                    HEP.Automation.MadGraph.Model.ADMXUDD
                    HEP.Automation.MadGraph.Model.ADMXQLD
+                   HEP.Automation.MadGraph.Model.ADMXQLD311
   -- Other-Modules: 
                    Paths_madgraph_auto_model
                    
