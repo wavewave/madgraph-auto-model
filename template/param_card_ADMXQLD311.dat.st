@@ -45,25 +45,25 @@ Block mass
    35 3.999601e+02 # MH02 
    36 3.995839e+02 # MA0 
    37 4.078790e+02 # MH 
-  1000001 5.684411e+02 # set of param :1*Msd1, 1*Msd2 
-  1000002 5.611190e+02 # set of param :1*Msu1, 1*Msu2 
-  1000005 5.130652e+02 # Msd3 
+  1000001 $msquark$    # set of param :1*Msd1, 1*Msd2 
+  1000002 $msquark$    # set of param :1*Msu1, 1*Msu2 
+  1000005 $msquark$    # Msd3 
   1000006 $mstop$      # Msu3 
   1000011 2.029157e+02 # set of param :1*Msl1, 1*Msl2 
   1000012 1.852583e+02 # set of param :1*Msn1, 1*Msn2 
   1000015 1.344909e+02 # Msl3 
   1000016 1.847085e+02 # Msn3 
-  1000021 6.077137e+02 # Mgo 
+  1000021 $mgluino$    # Mgo 
   1000022 9.668807e+01 # Mneu1 
   1000023 1.810882e+02 # Mneu2 
   1000024 1.816965e+02 # Mch1 
   1000025 -3.637560e+02 # Mneu3 
   1000035 3.817294e+02 # Mneu4 
   1000037 3.799393e+02 # Mch2 
-  2000001 5.452285e+02 # set of param :1*Msd4, 1*Msd5 
-  2000002 5.492593e+02 # set of param :1*Msu4, 1*Msu5 
-  2000005 5.437267e+02 # Msd6 
-  2000006 5.857858e+02 # Msu6 
+  2000001 $msquark$    # set of param :1*Msd4, 1*Msd5 
+  2000002 $msquark$    # set of param :1*Msu4, 1*Msu5 
+  2000005 $msquark$    # Msd6 
+  2000006 $msquark$    # Msu6 
   2000011 1.441028e+02 # set of param :1*Msl4, 1*Msl5 
   2000015 2.068678e+02 # Msl6 
 ##  Not dependent paramater.

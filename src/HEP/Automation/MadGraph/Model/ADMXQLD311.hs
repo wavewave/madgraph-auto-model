@@ -1,5 +1,5 @@
 {-# LANGUAGE TypeFamilies, FlexibleInstances, FlexibleContexts, 
-             DeriveDataTypeable, StandaloneDeriving #-}
+             DeriveDataTypeable, StandaloneDeriving, RecordWildCards #-}
 
 -----------------------------------------------------------------------------
 -- |
@@ -32,7 +32,9 @@ data ADMXQLD311 = ADMXQLD311
              deriving (Show, Typeable, Data)
 
 instance Model ADMXQLD311 where 
-  data ModelParam ADMXQLD311 = ADMXQLD311Param { mstop  :: Double }
+  data ModelParam ADMXQLD311 = ADMXQLD311Param { mstop  :: Double
+                                               , mgluino :: Double
+                                               , msquark :: Double }
                           deriving Show 
   briefShow ADMXQLD311 = "ADMXQLD311"
   madgraphVersion _ = MadGraph5
@@ -41,14 +43,16 @@ instance Model ADMXQLD311 where
                           "ADMXQLD311" -> Just ADMXQLD311 
                           _ -> Nothing 
   paramCard4Model ADMXQLD311 = "param_card_ADMXQLD311.dat"
-  paramCardSetup tpath ADMXQLD311 (ADMXQLD311Param mstop) = do 
+  paramCardSetup tpath ADMXQLD311 ADMXQLD311Param {..} = do 
     templates <- directoryGroup tpath 
     return $ ( renderTemplateGroup 
                  templates 
-                 [ ("mstop", (printf "%.4e" mstop :: String))
+                 [ ("mstop"  , printf "%.4e" mstop   :: String)
+                 , ("mgluino", printf "%.4e" mgluino :: String)
+                 , ("msquark", printf "%.4e" msquark :: String)
                  ] 
                  (paramCard4Model ADMXQLD311) ) ++ "\n\n\n"
-  briefParamShow (ADMXQLD311Param mstop) = "MST"++show mstop
+  briefParamShow ADMXQLD311Param {..} = "MST"++show mstop++"MG"++show mgluino++"MSQ"++show msquark
   interpreteParam str = let r = parse xqld311parse "" str 
                         in case r of
                           Right param -> param 
@@ -59,7 +63,11 @@ xqld311parse :: ParsecT String () Identity (ModelParam ADMXQLD311)
 xqld311parse = do 
   string "MST"
   mststr <- many1 (oneOf "+-0123456789.")
-  return (ADMXQLD311Param (read mststr))
+  string "MG"
+  mgstr <- many1 (oneOf "+-0123456789.")
+  string "MSQ"
+  msqstr <- many1 (oneOf "+-0123456789.")
+  return (ADMXQLD311Param (read mststr) (read mgstr) (read msqstr))
 
 -----------------------------
 -- for type representation 
