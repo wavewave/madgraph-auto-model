@@ -55,6 +55,7 @@ Library
                    HEP.Automation.MadGraph.Model.ADMXUDD
                    HEP.Automation.MadGraph.Model.ADMXQLD
                    HEP.Automation.MadGraph.Model.ADMXQLD311
+                   HEP.Automation.MadGraph.Model.ADMXQLD211
   -- Other-Modules: 
                    Paths_madgraph_auto_model
                    
