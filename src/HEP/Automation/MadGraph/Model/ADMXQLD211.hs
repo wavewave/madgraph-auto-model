@@ -35,7 +35,6 @@ instance Model ADMXQLD211 where
   data ModelParam ADMXQLD211 = ADMXQLD211Param { mstop  :: Double
                                                , mgluino :: Double
                                                , msquark :: Double 
-                                               , mscharm :: Double
                                                }
                           deriving Show 
   briefShow ADMXQLD211 = "ADMXQLD211"
@@ -52,10 +51,9 @@ instance Model ADMXQLD211 where
                  [ ("mstop"  , printf "%.4e" mstop   :: String)
                  , ("mgluino", printf "%.4e" mgluino :: String)
                  , ("msquark", printf "%.4e" msquark :: String)
-                 , ("mscharm", printf "%.4e" mscharm :: String)
                  ] 
                  (paramCard4Model ADMXQLD211) ) ++ "\n\n\n"
-  briefParamShow ADMXQLD211Param {..} = "MST"++show mstop++"MG"++show mgluino++"MSQ"++show msquark ++ "MSC" ++ show mscharm 
+  briefParamShow ADMXQLD211Param {..} = "MST"++show mstop++"MG"++show mgluino++"MSQ"++show msquark  
   interpreteParam str = let r = parse xqld211parse "" str 
                         in case r of
                           Right param -> param 
@@ -70,9 +68,7 @@ xqld211parse = do
   mgstr <- many1 (oneOf "+-0123456789.")
   string "MSQ"
   msqstr <- many1 (oneOf "+-0123456789.")
-  string "MSC"
-  mscstr <- many1 (oneOf "+-0123456789.")
-  return (ADMXQLD211Param (read mststr) (read mgstr) (read msqstr) (read mscstr))
+  return (ADMXQLD211Param (read mststr) (read mgstr) (read msqstr))
 
 -----------------------------
 -- for type representation 
