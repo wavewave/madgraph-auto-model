@@ -19,7 +19,9 @@ import HEP.Automation.MadGraph.Model.SChanC8V
 import HEP.Automation.MadGraph.Model.SChanC8Vschmaltz
 import HEP.Automation.MadGraph.Model.FU8C1V 
 import HEP.Automation.MadGraph.Model.ADMXUDD
-import HEP.Automation.MadGraph.Model.ADMXQLD
+import HEP.Automation.MadGraph.Model.ADMXQLD111
+import HEP.Automation.MadGraph.Model.ADMXQLD211
+import HEP.Automation.MadGraph.Model.ADMXQLD311
 
 data ModelBox = forall a. (Model a) => ModelBox a
 
@@ -42,6 +44,8 @@ modelParse "schanC8Vschmaltz_UFO" = Just (ModelBox SChanC8Vschmaltz)
 modelParse "FU8C1V_UFO"     = Just (ModelBox FU8C1V)
 modelParse "sm"             = Just (ModelBox SM) 
 modelParse "ADMXUDD"        = Just (ModelBox ADMXUDD)
-modelParse "ADMXQLD"        = Just (ModelBox ADMXQLD)
+modelParse "ADMXQLD111"        = Just (ModelBox ADMXQLD111)
+modelParse "ADMXQLD211"        = Just (ModelBox ADMXQLD211)
+modelParse "ADMXQLD311"        = Just (ModelBox ADMXQLD311)
 modelParse _ = Nothing
 
