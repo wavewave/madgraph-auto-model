@@ -53,7 +53,7 @@ Library
                    HEP.Automation.MadGraph.Model.SChanC8Vschmaltz
                    HEP.Automation.MadGraph.Model.FU8C1V
                    HEP.Automation.MadGraph.Model.ADMXUDD
-                   HEP.Automation.MadGraph.Model.ADMXQLD
+                   HEP.Automation.MadGraph.Model.ADMXQLD111
                    HEP.Automation.MadGraph.Model.ADMXQLD311
                    HEP.Automation.MadGraph.Model.ADMXQLD211
   -- Other-Modules: 
