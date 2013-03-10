@@ -1,5 +1,5 @@
 Name:		madgraph-auto-model 
-Version:	0.3.999
+Version:	0.999
 Synopsis:	madgraph-auto-model
 Description: 	madgraph-auto-model
 License: 	BSD3
@@ -18,14 +18,13 @@ Library
   Build-Depends: base > 4, 
                  mtl > 2, 
                  filepath , 
-                 madgraph-auto >= 0.6.999 && < 0.8, 
+                 madgraph-auto >= 0.999, 
                  HStringTemplate > 0.6, 
                  devadmin, 
-                 -- MSSMType, 
                  pureMD5 > 2,
                  bytestring > 0.9, 
                  parsec >  3.1, 
-                 HEPUtil >=0.1.999 && < 0.3
+                 HEPUtil >=0.999 
   Exposed-Modules: 
                    HEP.Automation.MadGraph.Process
                    HEP.Automation.MadGraph.ModelParser
@@ -38,7 +37,6 @@ Library
                    HEP.Automation.MadGraph.Model.Trip
                    HEP.Automation.MadGraph.Model.AxiGluon
                    HEP.Automation.MadGraph.Model.WpZpFull
-                   -- HEP.Automation.MadGraph.Model.MSSMSLHA
                    HEP.Automation.MadGraph.Model.ZpHFull
                    HEP.Automation.MadGraph.Model.Singlet
                    HEP.Automation.MadGraph.Model.Octet
@@ -59,5 +57,3 @@ Library
   -- Other-Modules: 
                    Paths_madgraph_auto_model
                    
-
---                   HEP.Automation.MadGraph.Model.FQ8C1V
