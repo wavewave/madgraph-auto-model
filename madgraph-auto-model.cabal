@@ -9,6 +9,12 @@ Maintainer: 	Ian-Woo Kim <ianwookim@gmail.com>
 Build-Type: 	Simple
 Cabal-Version:  >= 1.2
 data-files:     template/*.dat.st 
+                modelrepo/ADMXQLD111/*.py
+                modelrepo/ADMXQLD111/*.dat
+                modelrepo/ADMXQLD211/*.py
+                modelrepo/ADMXQLD211/*.dat
+                modelrepo/ADMXQLD311/*.py
+                modelrepo/ADMXQLD311/*.dat
 
 
 Library
@@ -29,31 +35,32 @@ Library
                    HEP.Automation.MadGraph.Process
                    HEP.Automation.MadGraph.ModelParser
                    HEP.Automation.MadGraph.Model.Common
-                   HEP.Automation.MadGraph.Model.Exotic
+                   -- HEP.Automation.MadGraph.Model.Exotic
                    HEP.Automation.MadGraph.Model.SM
-                   HEP.Automation.MadGraph.Model.Wp
-                   HEP.Automation.MadGraph.Model.ZpH
-                   HEP.Automation.MadGraph.Model.Six
-                   HEP.Automation.MadGraph.Model.Trip
-                   HEP.Automation.MadGraph.Model.AxiGluon
-                   HEP.Automation.MadGraph.Model.WpZpFull
-                   HEP.Automation.MadGraph.Model.ZpHFull
-                   HEP.Automation.MadGraph.Model.Singlet
-                   HEP.Automation.MadGraph.Model.Octet
-                   HEP.Automation.MadGraph.Model.C1S
-                   HEP.Automation.MadGraph.Model.C1SLowSimple
-                   HEP.Automation.MadGraph.Model.C1V
-                   HEP.Automation.MadGraph.Model.C1VLowSimple
-                   HEP.Automation.MadGraph.Model.C8S
-                   HEP.Automation.MadGraph.Model.C8V
-                   HEP.Automation.MadGraph.Model.SChanC1V
-                   HEP.Automation.MadGraph.Model.SChanC8V
-                   HEP.Automation.MadGraph.Model.SChanC8Vschmaltz
-                   HEP.Automation.MadGraph.Model.FU8C1V
-                   HEP.Automation.MadGraph.Model.ADMXUDD
+                   -- HEP.Automation.MadGraph.Model.Wp
+                   -- HEP.Automation.MadGraph.Model.ZpH
+                   -- HEP.Automation.MadGraph.Model.Six
+                   -- HEP.Automation.MadGraph.Model.Trip
+                   -- HEP.Automation.MadGraph.Model.AxiGluon
+                   -- HEP.Automation.MadGraph.Model.WpZpFull
+                   -- HEP.Automation.MadGraph.Model.ZpHFull
+                   -- HEP.Automation.MadGraph.Model.Singlet
+                   -- HEP.Automation.MadGraph.Model.Octet
+                   -- HEP.Automation.MadGraph.Model.C1S
+                   -- HEP.Automation.MadGraph.Model.C1SLowSimple
+                   -- HEP.Automation.MadGraph.Model.C1V
+                   -- HEP.Automation.MadGraph.Model.C1VLowSimple
+                   -- HEP.Automation.MadGraph.Model.C8S
+                   -- HEP.Automation.MadGraph.Model.C8V
+                   -- HEP.Automation.MadGraph.Model.SChanC1V
+                   -- HEP.Automation.MadGraph.Model.SChanC8V
+                   -- HEP.Automation.MadGraph.Model.SChanC8Vschmaltz
+                   -- HEP.Automation.MadGraph.Model.FU8C1V
+                   -- HEP.Automation.MadGraph.Model.ADMXUDD
                    HEP.Automation.MadGraph.Model.ADMXQLD111
                    HEP.Automation.MadGraph.Model.ADMXQLD311
                    HEP.Automation.MadGraph.Model.ADMXQLD211
+                   
   -- Other-Modules: 
                    Paths_madgraph_auto_model
                    
