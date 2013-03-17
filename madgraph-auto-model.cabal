@@ -32,11 +32,19 @@ Library
                  parsec >  3.1, 
                  HEPUtil >=0.999 
   Exposed-Modules: 
-                   HEP.Automation.MadGraph.Process
                    HEP.Automation.MadGraph.ModelParser
                    HEP.Automation.MadGraph.Model.Common
-                   -- HEP.Automation.MadGraph.Model.Exotic
                    HEP.Automation.MadGraph.Model.SM
+                   HEP.Automation.MadGraph.Model.ADMXQLD111
+                   HEP.Automation.MadGraph.Model.ADMXQLD311
+                   HEP.Automation.MadGraph.Model.ADMXQLD211
+                   
+  -- Other-Modules: 
+                   Paths_madgraph_auto_model
+                   
+
+                   --  HEP.Automation.MadGraph.Process
+                   -- HEP.Automation.MadGraph.Model.Exotic
                    -- HEP.Automation.MadGraph.Model.Wp
                    -- HEP.Automation.MadGraph.Model.ZpH
                    -- HEP.Automation.MadGraph.Model.Six
@@ -57,10 +65,3 @@ Library
                    -- HEP.Automation.MadGraph.Model.SChanC8Vschmaltz
                    -- HEP.Automation.MadGraph.Model.FU8C1V
                    -- HEP.Automation.MadGraph.Model.ADMXUDD
-                   HEP.Automation.MadGraph.Model.ADMXQLD111
-                   HEP.Automation.MadGraph.Model.ADMXQLD311
-                   HEP.Automation.MadGraph.Model.ADMXQLD211
-                   
-  -- Other-Modules: 
-                   Paths_madgraph_auto_model
-                   
