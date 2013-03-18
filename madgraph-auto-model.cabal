@@ -15,6 +15,8 @@ data-files:     template/*.dat.st
                 modelrepo/ADMXQLD211/*.dat
                 modelrepo/ADMXQLD311/*.py
                 modelrepo/ADMXQLD311/*.dat
+                modelrepo/SimplifiedSUSY/*.py
+                modelrepo/SimplifiedSUSY/*.dat
 
 
 Library
@@ -35,6 +37,7 @@ Library
                    HEP.Automation.MadGraph.ModelParser
                    HEP.Automation.MadGraph.Model.Common
                    HEP.Automation.MadGraph.Model.SM
+                   HEP.Automation.MadGraph.Model.SimplifiedSUSY
                    HEP.Automation.MadGraph.Model.ADMXQLD111
                    HEP.Automation.MadGraph.Model.ADMXQLD311
                    HEP.Automation.MadGraph.Model.ADMXQLD211
