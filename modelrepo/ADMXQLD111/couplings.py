@@ -3808,3 +3808,12 @@ GC_10002 = Coupling(name = 'GC_10002',
                     value = 'complex(0,1)/Madm121', # i am sloppy
                     order = {'ADM':1})
 
+GC_10003 = Coupling(name = 'GC_10003',
+                    value = '-complex(0,1)/Madm111', # i am sloppy
+                    order = {'ADM':1})
+
+GC_10004 = Coupling(name = 'GC_10004',
+                    value = '-complex(0,1)/Madm121', # i am sloppy
+                    order = {'ADM':1})
+
+
