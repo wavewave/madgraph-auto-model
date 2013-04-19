@@ -17,7 +17,8 @@ data-files:     template/*.dat.st
                 modelrepo/ADMXQLD311/*.dat
                 modelrepo/SimplifiedSUSY/*.py
                 modelrepo/SimplifiedSUSY/*.dat
-
+                modelrepo/leptoquark1/*.py
+                modelrepo/leptoquark1/*.dat 
 
 Library
   hs-source-dirs: src
@@ -41,7 +42,7 @@ Library
                    HEP.Automation.MadGraph.Model.ADMXQLD111
                    HEP.Automation.MadGraph.Model.ADMXQLD311
                    HEP.Automation.MadGraph.Model.ADMXQLD211
-                   
+                   HEP.Automation.MadGraph.Model.LeptoQuark1                   
   -- Other-Modules: 
                    Paths_madgraph_auto_model
                    
