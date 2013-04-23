@@ -5,7 +5,7 @@
 
 from object_library import all_couplings, Coupling
 
-from function_library import complexconjugate, re, im, csc, sec, acsc, asec
+from function_library import complexconjugate, re, im, csc, sec, acsc, asec, sin, cos
 
 
 
@@ -214,5 +214,9 @@ GC_50 = Coupling(name = 'GC_50',
 #########################
 
 GC_100 = Coupling(name = 'GC_100', 
-                  value = 'GLQ', 
-                  order = {'LEPQ':1})
+                  value = 'complex(0,1)*cos(lS)', 
+                  order = {'QED':1})
+
+GC_101 = Coupling(name = 'GC_101', 
+                  value = 'complex(0,1)*sin(lS)', 
+                  order = {'QED':1})

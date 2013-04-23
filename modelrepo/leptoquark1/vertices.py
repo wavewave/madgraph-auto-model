@@ -464,29 +464,28 @@ V_101 = Vertex(name = 'V_101',
 ## YUKAWA
 
 V_102 = Vertex(name = 'V_102',
-               particles = [ P.ve__tilde__, P.d, P.LQ__tilde__],
-               color = [ 'Identity(2,3)' ],
-               lorentz = [ L.FFS1 ],
-               couplings = {(0,0):C.GC_100})
+               particles = [  P.d, P.ve, P.LQ__tilde__],
+               color = [ 'Identity(1,3)' ],
+               lorentz = [ L.FFS3 ],
+               couplings = {(0,0):C.GC_101})
 
 V_103 = Vertex(name = 'V_103',
-               particles = [ P.d__tilde__, P.ve, P.LQ],
-               color = [ 'Identity(1,3)' ],
-               lorentz = [ L.FFS1 ],
-               couplings = {(0,0):C.GC_100})
-
+               particles = [ P.ve__tilde__, P.d__tilde__,  P.LQ],
+               color = [ 'Identity(2,3)' ],
+               lorentz = [ L.FFS2 ],
+               couplings = {(0,0):C.GC_101})
 
 V_104 = Vertex(name = 'V_104',
-               particles = [ P.e__minus__, P.u, P.LQ__tilde__],
-               color = [ 'Identity(2,3)' ],
-               lorentz = [ L.FFS1 ],
+               particles = [ P.u, P.e__minus__,  P.LQ__tilde__],
+               color = [ 'Identity(1,3)' ],
+               lorentz = [ L.FFS3 ],
                couplings = {(0,0):C.GC_100})
 
 
 V_105 = Vertex(name = 'V_105',
-               particles = [ P.u__tilde__, P.e__plus__, P.LQ],
-               color = [ 'Identity(1,3)' ],
-               lorentz = [ L.FFS1 ],
+               particles = [ P.e__plus__, P.u__tilde__,  P.LQ],
+               color = [ 'Identity(2,3)' ],
+               lorentz = [ L.FFS2 ],
                couplings = {(0,0):C.GC_100})
 
 

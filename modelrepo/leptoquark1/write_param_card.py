@@ -18,7 +18,6 @@ class ParamCardWriter(object):
             from parameters import all_parameters
             list_of_parameters = [param for param in all_parameters if \
                                                        param.nature=='external']
-        
         self.generic_output = generic
         if generic:
             self.define_not_dep_param(list_of_parameters)

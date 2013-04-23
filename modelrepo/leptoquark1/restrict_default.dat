@@ -67,17 +67,13 @@ DECAY  21 0.000000 # G : 0.0
 DECAY  9000006 0.000000 # LQ : 0.0 
 
 ###################################
-## INFORMATION FOR LEPTOQUARK
-###################################
-Block LEPTOQUARK
-    1 0.100000e+01 # GLQ
-
-###################################
 ## INFORMATION FOR INVSCALAR
 ###################################
 Block INVSCALAR 
     1 5.000000e-01 # lS 
     2 5.000001e-01 # om 
+    3 1.000000e+00 # GLQ1 
+    4 1.000000e+00 # GLQ2 
 
 ###################################
 ## INFORMATION FOR WOLFENSTEIN
@@ -100,7 +96,7 @@ Block YUKAWA
 #===========================================================
 
 Block QNUMBERS 9000006  # LQ 
-        1 2  # 3 times electric charge
+        1 -1  # 3 times electric charge
         2 1  # number of spin states (2S+1)
         3 3  # colour rep (1: singlet, 3: triplet, 8: octet)
         4 1  # Particle/Antiparticle distinction (0=own anti)

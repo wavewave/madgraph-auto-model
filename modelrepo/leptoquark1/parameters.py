@@ -17,13 +17,6 @@ ZERO = Parameter(name = 'ZERO',
                  texname = '0')
 
 # User-defined parameters.
-GLQ = Parameter(name = 'GLQ',
-                nature = 'external',
-                type = 'real',
-                value = 1,
-                texname = 'GLQ',
-                lhablock = 'LEPTOQUARK',
-                lhacode = [ 1 ] )
 
 
 lS = Parameter(name = 'lS',
@@ -41,6 +34,24 @@ om = Parameter(name = 'om',
                texname = '\\text{om}',
                lhablock = 'INVSCALAR',
                lhacode = [ 2 ])
+
+GLQ1 = Parameter(name = 'GLQ1',
+                 nature = 'external',
+                 type = 'real',
+                 value = 1,
+                 texname = 'GLQ1',
+                 lhablock = 'INVSCALAR',
+                 lhacode = [ 3 ])
+
+GLQ2 = Parameter(name = 'GLQ2',
+                 nature = 'external',
+                 type = 'real',
+                 value = 1,
+                 texname = 'GLQ2',
+                 lhablock = 'INVSCALAR',
+                 lhacode = [ 4 ])
+
+
 
 aEWM1 = Parameter(name = 'aEWM1',
                   nature = 'external',

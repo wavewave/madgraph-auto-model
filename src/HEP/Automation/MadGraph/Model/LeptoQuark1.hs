@@ -33,7 +33,7 @@ data LeptoQuark1 = LeptoQuark1
 
 instance Model LeptoQuark1 where 
   data ModelParam LeptoQuark1 = 
-         LeptoQuark1Param { mLQ  :: Double }
+         LeptoQuark1Param { mLQ  :: Double, thLQ :: Double }
                           deriving Show 
   briefShow LeptoQuark1 = "LeptoQuark1"
   madgraphVersion _ = MadGraph5
@@ -47,9 +47,10 @@ instance Model LeptoQuark1 where
     return $ ( renderTemplateGroup 
                  templates 
                  [ ("mLQ"  , printf "%.4e" mLQ   :: String)
+                 , ("thLQ", printf "%.4e" thLQ :: String) 
                  ] 
                  (paramCard4Model LeptoQuark1) ) ++ "\n\n\n"
-  briefParamShow LeptoQuark1Param {..} = "MLQ"++show mLQ
+  briefParamShow LeptoQuark1Param {..} = "MLQ"++show mLQ++"THLQ"++show thLQ
   interpreteParam str = let r = parse leptoQuark1parse "" str 
                         in case r of
                           Right param -> param 
@@ -60,7 +61,9 @@ leptoQuark1parse :: ParsecT String () Identity (ModelParam LeptoQuark1)
 leptoQuark1parse = do 
   string "MLQ"
   mlqstr <- many1 (oneOf "+-0123456789.")
-  return (LeptoQuark1Param (read mlqstr))
+  string "THLQ"
+  thlqstr <- many1 (oneOf "+-0123456789.")
+  return (LeptoQuark1Param (read mlqstr) (read thlqstr))
 
 -----------------------------
 -- for type representation 

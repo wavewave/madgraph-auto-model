@@ -49,6 +49,13 @@ acsc = Function(name = 'acsc',
              arguments = ('z',),
              expression = 'cmath.asin(1./z)')
 
+sin = Function(name = 'sin', 
+               arguments = ('z',), 
+               expression = 'cmath.sin(z)')
+
+cos = Function(name = 'cos',
+               arguments = ('z',), 
+               expression = 'cmath.cos(z)')
 
 
 
