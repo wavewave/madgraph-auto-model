@@ -209,3 +209,10 @@ GC_50 = Coupling(name = 'GC_50',
                  value = '(ee*complex(0,1)*complexconjugate(CKM33))/(sw*cmath.sqrt(2))',
                  order = {'QED':1})
 
+#########################
+## LEPTOQUARK COUPLING ##
+#########################
+
+GC_100 = Coupling(name = 'GC_100', 
+                  value = 'GLQ', 
+                  order = {'LEPQ':1})

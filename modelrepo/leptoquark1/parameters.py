@@ -17,6 +17,15 @@ ZERO = Parameter(name = 'ZERO',
                  texname = '0')
 
 # User-defined parameters.
+GLQ = Parameter(name = 'GLQ',
+                nature = 'external',
+                type = 'real',
+                value = 1,
+                texname = 'GLQ',
+                lhablock = 'LEPTOQUARK',
+                lhacode = [ 1 ] )
+
+
 lS = Parameter(name = 'lS',
                nature = 'external',
                type = 'real',

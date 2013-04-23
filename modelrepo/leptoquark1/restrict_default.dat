@@ -67,6 +67,12 @@ DECAY  21 0.000000 # G : 0.0
 DECAY  9000006 0.000000 # LQ : 0.0 
 
 ###################################
+## INFORMATION FOR LEPTOQUARK
+###################################
+Block LEPTOQUARK
+    1 0.100000e+01 # GLQ
+
+###################################
 ## INFORMATION FOR INVSCALAR
 ###################################
 Block INVSCALAR 

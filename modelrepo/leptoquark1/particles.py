@@ -263,8 +263,8 @@ LQ = Particle(pdg_code = 9000006,
               width = Param.ZERO,
               texname = 'LQ',
               antitexname = 'LQ~',
-              charge = 2/3,
-              LeptonNumber = -1,
+              charge = -1/3,
+              LeptonNumber = 1,
               GhostNumber = 0)
 
 LQ__tilde__ = LQ.anti()
