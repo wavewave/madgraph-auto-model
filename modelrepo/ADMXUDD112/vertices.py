@@ -4951,25 +4951,37 @@ V_822 = Vertex(name = 'V_822',
 #
 
 V_10001  = Vertex(name = 'V_10001',
-               particles = [ P.d__tilde__, P.d__tilde__, P.su4__tilde__, P.sxxp ],
+               particles = [ P.d__tilde__, P.s__tilde__, P.su4__tilde__, P.sxxp ],
                color = [ 'EpsilonBar(1,2,3)' ],
                lorentz = [ L.FFSS2],
                couplings = {(0,0):C.GC_10001})
 
 V_10002 = Vertex(name = 'V_10002',
-               particles = [ P.d, P.d, P.su4, P.sxxp__tilde__ ],
+               particles = [ P.s, P.d, P.su4, P.sxxp__tilde__ ],
                color = [ 'Epsilon(1,2,3)' ],
                lorentz = [ L.FFSS1 ],
                couplings = {(0,0):C.GC_10001})
 
 V_10003 = Vertex(name = 'V_10003',
-               particles = [ P.u__tilde__, P.d__tilde__, P.sd4__tilde__, P.sxxp ],
+               particles = [ P.u__tilde__, P.s__tilde__, P.sd4__tilde__, P.sxxp ],
                color = [ 'EpsilonBar(1,2,3)' ],
                lorentz = [ L.FFSS2 ],
                couplings = {(0,0):C.GC_10001})
 
 V_10004 = Vertex(name = 'V_10004',
-               particles = [ P.d, P.u, P.sd4, P.sxxp__tilde__ ],
+               particles = [ P.s, P.u, P.sd4, P.sxxp__tilde__ ],
+               color = [ 'Epsilon(1,2,3)' ],
+               lorentz = [ L.FFSS1 ],
+               couplings = {(0,0):C.GC_10001})
+
+V_10005 = Vertex(name = 'V_10005',
+               particles = [ P.u__tilde__, P.d__tilde__, P.sd5__tilde__, P.sxxp ],
+               color = [ 'EpsilonBar(1,2,3)' ],
+               lorentz = [ L.FFSS2 ],
+               couplings = {(0,0):C.GC_10001})
+
+V_10006 = Vertex(name = 'V_10006',
+               particles = [ P.d, P.u, P.sd5, P.sxxp__tilde__ ],
                color = [ 'Epsilon(1,2,3)' ],
                lorentz = [ L.FFSS1 ],
                couplings = {(0,0):C.GC_10001})

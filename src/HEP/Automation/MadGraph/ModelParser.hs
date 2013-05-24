@@ -22,6 +22,7 @@ import HEP.Automation.MadGraph.Model.SM
 import HEP.Automation.MadGraph.Model.ADMXQLD111
 import HEP.Automation.MadGraph.Model.ADMXQLD211
 import HEP.Automation.MadGraph.Model.ADMXQLD311
+import HEP.Automation.MadGraph.Model.ADMXUDD112
 import HEP.Automation.MadGraph.Model.SimplifiedSUSY
 import HEP.Automation.MadGraph.Model.LeptoQuark1
 
@@ -49,6 +50,7 @@ modelParse "sm"                = Just (ModelBox SM)
 modelParse "ADMXQLD111"        = Just (ModelBox ADMXQLD111)
 modelParse "ADMXQLD211"        = Just (ModelBox ADMXQLD211)
 modelParse "ADMXQLD311"        = Just (ModelBox ADMXQLD311)
+modelParse "ADMXUDD112"        = Just (ModelBox ADMXUDD112)
 modelParse "SimplifiedSUSY"    = Just (ModelBox SimplifiedSUSY)
 modelParse "LeptoQuark1"       = Just (ModelBox LeptoQuark1)
 modelParse _ = Nothing

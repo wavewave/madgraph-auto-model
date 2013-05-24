@@ -11,7 +11,7 @@
 -- Stability   : experimental
 -- Portability : GHC
 --
--- ADM (asymmetric dark matter) XUDD model
+-- ADM (asymmetric dark matter) XQLD model
 -- 
 -----------------------------------------------------------------------------
 
