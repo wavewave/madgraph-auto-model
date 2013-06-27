@@ -4946,8 +4946,8 @@ V_822 = Vertex(name = 'V_822',
 # added for ADM (XQLD^c model)
 #
 # by Deshpreet Singh Bedi and Ian-Woo Kim
-# date : May 1, 2012
-# updated: May 16, 2012
+# 
+# updated: Jun 24, 2013
 #
 
 V_10001 = Vertex(name = 'V_10001',
@@ -5023,4 +5023,82 @@ V_10010 = Vertex(name = 'V_10010',
 #                 color = [ 'Identity(1,2)' ],
 #                 lorentz = [ L.FFSS1 ],
 #                 couplings = {(0,0):C.GC_10003})
+
+
+
+V_20001 = Vertex(name = 'V_20001',
+               particles = [ P.u, P.e__minus__, P.sd5__tilde__, P.sxxp ],
+               color = [ 'Identity(1,3)' ],
+               lorentz = [ L.FFSS2 ],
+               couplings = {(0,0):C.GC_10001})
+
+V_20002  = Vertex(name = 'V_20002',
+               particles = [ P.e__plus__, P.u__tilde__, P.sd5, P.sxxp__tilde__ ],
+               color = [ 'Identity(2,3)' ],
+               lorentz = [ L.FFSS1],
+               couplings = {(0,0):C.GC_10001})
+
+V_20003 = Vertex(name = 'V_20003',
+               particles = [ P.d, P.ve, P.sd5__tilde__, P.sxxp ],
+               color = [ 'Identity(1,3)' ],
+               lorentz = [ L.FFSS2 ],
+               couplings = {(0,0):C.GC_10003})
+
+V_20004  = Vertex(name = 'V_20004',
+               particles = [ P.ve__tilde__, P.d__tilde__, P.sd5, P.sxxp__tilde__ ],
+               color = [ 'Identity(2,3)' ],
+               lorentz = [ L.FFSS1],
+               couplings = {(0,0):C.GC_10003})
+
+
+V_20005 = Vertex(name = 'V_20005',
+               particles = [ P.e__minus__, P.d__tilde__, P.su2, P.sxxp ],
+               color = [ 'Identity(2,3)' ],
+               lorentz = [ L.FFSS2 ],
+               couplings = {(0,0):C.GC_10001})
+
+V_20006 = Vertex(name = 'V_20006',
+               particles = [ P.d, P.e__plus__, P.su2__tilde__, P.sxxp__tilde__ ],
+               color = [ 'Identity(1,3)' ],
+               lorentz = [ L.FFSS1 ],
+               couplings = {(0,0):C.GC_10001})
+
+V_20007 = Vertex(name = 'V_20007',
+               particles = [ P.ve, P.d__tilde__, P.sd2, P.sxxp ],
+               color = [ 'Identity(2,3)' ],
+               lorentz = [ L.FFSS2 ],
+               couplings = {(0,0):C.GC_10003})
+
+V_20008 = Vertex(name = 'V_20008',
+               particles = [ P.d, P.ve__tilde__, P.sd2__tilde__, P.sxxp__tilde__ ],
+               color = [ 'Identity(1,3)' ],
+               lorentz = [ L.FFSS1 ],
+               couplings = {(0,0):C.GC_10003})
+
+
+V_20009 = Vertex(name = 'V_20009',
+               particles = [ P.u, P.d__tilde__, P.sl2__minus__, P.sxxp ],
+               color = [ 'Identity(1,2)' ],
+               lorentz = [ L.FFSS2 ],
+               couplings = {(0,0):C.GC_10001})
+
+V_20010 = Vertex(name = 'V_20010',
+               particles = [ P.d, P.u__tilde__, P.sl2__plus__, P.sxxp__tilde__ ],
+               color = [ 'Identity(1,2)' ],
+               lorentz = [ L.FFSS1 ],
+               couplings = {(0,0):C.GC_10001})
+
+#V_20011 = Vertex(name = 'V_20011',
+#                 particles = [ P.d, P.d__tilde__, P.sv1, P.sxxp ],
+#                 color = [ 'Identity(1,2)' ],
+#                 lorentz = [ L.FFSS2 ],
+#                 couplings = {(0,0):C.GC_10003})
+
+#V_20012 = Vertex(name = 'V_20012',
+#                 particles = [ P.d, P.d__tilde__, P.sv1__tilde__, P.sxxp__tilde__ ],
+#                 color = [ 'Identity(1,2)' ],
+#                 lorentz = [ L.FFSS1 ],
+#                 couplings = {(0,0):C.GC_10003})
+
+
 
