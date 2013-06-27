@@ -11,6 +11,8 @@ Cabal-Version:  >= 1.2
 data-files:     template/*.dat.st 
                 modelrepo/ADMXQLD111/*.py
                 modelrepo/ADMXQLD111/*.dat
+                modelrepo/ADMXQLD111degen/*.py
+                modelrepo/ADMXQLD111degen/*.dat
                 modelrepo/ADMXQLD211/*.py
                 modelrepo/ADMXQLD211/*.dat
                 modelrepo/ADMXQLD311/*.py
@@ -45,6 +47,7 @@ Library
                    HEP.Automation.MadGraph.Model.SM
                    HEP.Automation.MadGraph.Model.SimplifiedSUSY
                    HEP.Automation.MadGraph.Model.ADMXQLD111
+                   HEP.Automation.MadGraph.Model.ADMXQLD111degen
                    HEP.Automation.MadGraph.Model.ADMXQLD311
                    HEP.Automation.MadGraph.Model.ADMXQLD211
                    HEP.Automation.MadGraph.Model.ADMXQLDlight
