@@ -32,10 +32,10 @@ data SimplifiedSUSY = SimplifiedSUSY
              deriving (Show, Typeable, Data)
 
 instance Model SimplifiedSUSY where 
-  data ModelParam SimplifiedSUSY = 
-         SimplifiedSUSYParam { mneut   :: Double
-                             , mgluino :: Double
-                             , msquark :: Double }
+  data ModelParam SimplifiedSUSY 
+    = SimplifiedSUSYParam { mneut   :: Double
+                          , mgluino :: Double
+                          , msquark :: Double }
                           deriving Show 
   briefShow SimplifiedSUSY = "SimplifiedSUSY"
   madgraphVersion _ = MadGraph5
