@@ -52,7 +52,7 @@ instance Model Axino where
                  [ ("mgluino", (printf "%.4e" mg :: String))
                  , ("msquark", (printf "%.4e" msq :: String))
                  , ("maxino", (printf "%.4e" mxa :: String))
-                 , ("fpqscale", (printf :%.4e" fpq :: String))
+                 , ("fpqscale", (printf "%.4e" fpq :: String))
                  , ("mneut",   (printf "%.4e" mn :: String)) ]
                  (paramCard4Model Axino) ) ++ "\n\n\n"
   briefParamShow (AxinoParam mg msq fpq mxa mn) = "MG"++show mg++"MQ"++show msq ++ "MXA" ++ show mxa ++ "FPQ"++show fpq++ "MN"++show mn
