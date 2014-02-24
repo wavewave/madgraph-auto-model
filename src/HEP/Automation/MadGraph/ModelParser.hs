@@ -13,6 +13,7 @@ import HEP.Automation.MadGraph.Model.ADMXUDD112
 import HEP.Automation.MadGraph.Model.ADMXUDD112degen
 import HEP.Automation.MadGraph.Model.SimplifiedSUSY
 import HEP.Automation.MadGraph.Model.LeptoQuark1
+import HEP.Automation.MadGraph.Model.Axino
 
 data ModelBox = forall a. (Model a) => ModelBox a
 
@@ -28,5 +29,6 @@ modelParse "ADMXUDD112"        = Just (ModelBox ADMXUDD112)
 modelParse "ADMXUDD112degen"   = Just (ModelBox ADMXUDD112degen)
 modelParse "SimplifiedSUSY"    = Just (ModelBox SimplifiedSUSY)
 modelParse "LeptoQuark1"       = Just (ModelBox LeptoQuark1)
+modelParse "Axino"             = Just (ModelBox Axino)
 modelParse _ = Nothing
 
