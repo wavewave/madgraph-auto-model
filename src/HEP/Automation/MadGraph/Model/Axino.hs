@@ -76,3 +76,17 @@ axinoParse = do
   mnstr <- many1 (oneOf "+-0123456789.") 
   return (AxinoParam (read mgstr) (read mqstr) (read mxastr) (read mnstr) (read fpqstr))
 
+-----------------------------
+-- for type representation 
+-----------------------------
+
+-- | 
+axinoTr :: TypeRep 
+axinoTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.Axino.Axino") []
+
+-- | 
+instance Typeable (ModelParam Axino) where
+  typeOf _ = mkTyConApp modelParamTc [axinoTr]
+
+-- | 
+deriving instance Data (ModelParam Axino)
