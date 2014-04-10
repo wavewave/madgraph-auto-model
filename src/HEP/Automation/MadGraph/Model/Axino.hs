@@ -71,8 +71,8 @@ axinoParse = do
   string "MXA"
   mxastr <- many1 (oneOf "+-0123456789.")
   string "FPQ"
-  fpqstr <- many1 (oneOF "+-0123456789.")
+  fpqstr <- many1 (oneOf "+-0123456789.")
   string "MN"
   mnstr <- many1 (oneOf "+-0123456789.") 
-  return (AxinoParam (read mgstr) (read mqstr) (read mlstr) (read mnstr))
+  return (AxinoParam (read mgstr) (read mqstr) (read mxastr) (read mnstr) (read fpqstr))
 
