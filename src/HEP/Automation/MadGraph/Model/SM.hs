@@ -31,12 +31,14 @@ instance Model SM where
   briefParamShow  SMParam = "" 
   interpreteParam _ = SMParam
 
-
+{-
 sMTr :: TypeRep 
 sMTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.SM.SM") []
 
 instance Typeable (ModelParam SM) where
   typeOf _ = mkTyConApp modelParamTc [sMTr]
+
+-}
 
 deriving instance Data (ModelParam SM)
 
@@ -64,11 +66,13 @@ instance Model SMHiggs where
   modelFromString = error "modelFromString undefined in SMHiggs"
   interpreteParam = error "interpreteParam undefined in SMHiggs"
 
-
+{-
 sMHiggsTr :: TypeRep 
 sMHiggsTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.SM.SMHiggs") []
 
 instance Typeable (ModelParam SMHiggs) where
   typeOf _ = mkTyConApp modelParamTc [sMHiggsTr]
+-}
 
 deriving instance Data (ModelParam SMHiggs)
+

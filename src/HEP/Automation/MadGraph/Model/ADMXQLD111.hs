@@ -76,6 +76,7 @@ xqldparse = do
 -- for type representation 
 -----------------------------
 
+{-
 -- | 
 admxqldTr :: TypeRep 
 admxqldTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.ADMXQLD111.ADMXQLD111") []
@@ -84,5 +85,7 @@ admxqldTr = mkTyConApp (mkTyCon "HEP.Automation.MadGraph.Model.ADMXQLD111.ADMXQL
 instance Typeable (ModelParam ADMXQLD111) where
   typeOf _ = mkTyConApp modelParamTc [admxqldTr]
 
--- | 
+-}
+
+
 deriving instance Data (ModelParam ADMXQLD111)

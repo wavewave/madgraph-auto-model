@@ -49,15 +49,15 @@ Library
                    HEP.Automation.MadGraph.ModelParser
                    HEP.Automation.MadGraph.Model.Common
                    HEP.Automation.MadGraph.Model.SM
-                   HEP.Automation.MadGraph.Model.SimplifiedSUSY
-                   HEP.Automation.MadGraph.Model.SimplifiedSUSYlep
-                   HEP.Automation.MadGraph.Model.ADMXQLD111
-                   HEP.Automation.MadGraph.Model.ADMXQLD111degen
-                   HEP.Automation.MadGraph.Model.ADMXQLD311
-                   HEP.Automation.MadGraph.Model.ADMXQLD211
-                   HEP.Automation.MadGraph.Model.ADMXQLDlight
-                   HEP.Automation.MadGraph.Model.ADMXUDD112
-                   HEP.Automation.MadGraph.Model.ADMXUDD112degen
-                   HEP.Automation.MadGraph.Model.LeptoQuark1                   
+                   -- HEP.Automation.MadGraph.Model.SimplifiedSUSY
+                   -- HEP.Automation.MadGraph.Model.SimplifiedSUSYlep
+                   -- HEP.Automation.MadGraph.Model.ADMXQLD111
+                   -- HEP.Automation.MadGraph.Model.ADMXQLD111degen
+                   -- HEP.Automation.MadGraph.Model.ADMXQLD311
+                   -- HEP.Automation.MadGraph.Model.ADMXQLD211
+                   -- HEP.Automation.MadGraph.Model.ADMXQLDlight
+                   -- HEP.Automation.MadGraph.Model.ADMXUDD112
+                   -- HEP.Automation.MadGraph.Model.ADMXUDD112degen
+                   -- HEP.Automation.MadGraph.Model.LeptoQuark1                   
                    Paths_madgraph_auto_model
                    
