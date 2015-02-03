@@ -19,6 +19,8 @@ data-files:     template/*.dat.st
                 modelrepo/ADMXQLD311/*.dat
                 modelrepo/ADMXQLDlight/*.py
                 modelrepo/ADMXQLDlight/*.dat
+                modelrepo/HeavyHiggs/*.py
+                modelrepo/HeavyHiggs/*.dat
                 modelrepo/SimplifiedSUSY/*.py
                 modelrepo/SimplifiedSUSY/*.dat
                 modelrepo/SimplifiedSUSYlep/*.py
@@ -49,6 +51,7 @@ Library
                    HEP.Automation.MadGraph.ModelParser
                    HEP.Automation.MadGraph.Model.Common
                    HEP.Automation.MadGraph.Model.SM
+                   HEP.Automation.MadGraph.Model.HeavyHiggs
                    -- HEP.Automation.MadGraph.Model.SimplifiedSUSY
                    -- HEP.Automation.MadGraph.Model.SimplifiedSUSYlep
                    -- HEP.Automation.MadGraph.Model.ADMXQLD111
