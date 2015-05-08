@@ -31,7 +31,9 @@ data-files:     template/*.dat.st
                 modelrepo/ADMXUDD112/*.dat
                 modelrepo/ADMXUDD112degen/*.py
                 modelrepo/ADMXUDD112degen/*.dat
- 
+                modelrepo/heftNLO/*.py
+                modelrepo/heftNLO/*.dat
+                modelrepo/heftNLO/Fortran/*.f
 
 Library
   hs-source-dirs: src
@@ -52,6 +54,7 @@ Library
                    HEP.Automation.MadGraph.Model.Common
                    HEP.Automation.MadGraph.Model.SM
                    HEP.Automation.MadGraph.Model.HeavyHiggs
+                   HEP.Automation.MadGraph.Model.HEFTNLO
                    -- HEP.Automation.MadGraph.Model.SimplifiedSUSY
                    -- HEP.Automation.MadGraph.Model.SimplifiedSUSYlep
                    -- HEP.Automation.MadGraph.Model.ADMXQLD111
