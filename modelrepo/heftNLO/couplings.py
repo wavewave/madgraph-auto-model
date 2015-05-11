@@ -62,7 +62,7 @@ GC_12 = Coupling(name = 'GC_12',
 #                 order = {'HIG':1})
 
 GC_13 = Coupling(name = 'GC_13',
-                 value = '-(G**2*yt/cmath.sqrt(2))',
+                 value = '-complex(0,1)*(G**2*yt/cmath.sqrt(2))',
                  order = {'HIG':1})
 
 GC_14 = Coupling(name = 'GC_14',
