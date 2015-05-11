@@ -26,9 +26,9 @@
         BRA = -2.0*(ASIN(1/SQRT(tau)))**2
       END IF
          
-      ! FormFactor = - mt / (PIE**2 * S)*(1-0.5 * (1 - tau) * BRA ) 
+      FormFactor = - mt / (PIE**2 * S)*(1-0.5 * (1 - tau) * BRA ) 
 
-      WRITE(0,*) tau,BRA,FormFactor
+      ! WRITE(0,*) tau,BRA,FormFactor
 
       return 
       end
