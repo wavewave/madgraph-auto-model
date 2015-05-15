@@ -16,7 +16,7 @@ Block mass
     6 1.730000e+02 # MT 
    15 1.777000e+00 # MTA 
    23 9.118800e+01 # MZ 
-   25 $MHIGGS$     # set of param :1*MH, 1*MP 
+   25 $MH$     # set of param :1*MH, 1*MP 
 ## Dependent parameters, given by model restrictions.
 ## Those values should be edited following the 
 ## analytical expression. MG5 ignores those values 
@@ -34,7 +34,7 @@ Block mass
   21 0.000000 # g : 0.0 
   22 0.000000 # a : 0.0 
   24 80.419002 # w+ : cmath.sqrt(MZ__exp__2/2. + cmath.sqrt(MZ__exp__4/4. - (aEW*cmath.pi*MZ__exp__2)/(Gf*sqrt__2))) 
-  9000006 $MHIGGS$   # h1 : MH 
+  9000006 $MA$   # h1 : MA 
 
 ###################################
 ## INFORMATION FOR SMINPUTS
@@ -58,8 +58,8 @@ Block yukawa
 DECAY   6 1.491500e+00 # WT 
 DECAY  23 2.441404e+00 # WZ 
 DECAY  24 2.047600e+00 # WW 
-DECAY  25 $WHIGGS$     # WH 
-DECAY 9000006 $WHIGGS$  # WH1 
+DECAY  25 $WH$     # WH 
+DECAY 9000006 $WA$  # WH1 
 ## Dependent parameters, given by model restrictions.
 ## Those values should be edited following the 
 ## analytical expression. MG5 ignores those values 

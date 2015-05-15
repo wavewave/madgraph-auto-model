@@ -37,7 +37,7 @@ data HEFTNLO = HEFTNLO
 
 instance Model HEFTNLO where 
   data ModelParam HEFTNLO 
-    = HEFTNLOParam { mhiggs :: Double, whiggs :: Double }
+    = HEFTNLOParam { mH :: Double, wH :: Double, mA :: Double, wA :: Double }
                           deriving Show 
   briefShow HEFTNLO = "HEFTNLO"
   madgraphVersion _ = MadGraph5
@@ -50,11 +50,13 @@ instance Model HEFTNLO where
     templates <- directoryGroup tpath 
     return $ ( renderTemplateGroup 
                  templates 
-                 [ ("MHIGGS", printf "%.4e" mhiggs :: String)
-                 , ("WHIGGS", printf "%.4e" whiggs :: String)
+                 [ ("MH", printf "%.4e" mH :: String)
+                 , ("WH", printf "%.4e" wH :: String)
+                 , ("MA", printf "%.4e" mA :: String)
+                 , ("WA", printf "%.4e" wA :: String)
                  ] 
                  (paramCard4Model HEFTNLO) ) ++ "\n\n\n"
-  briefParamShow HEFTNLOParam {..} = "MH"++show mhiggs ++ "WH"++show whiggs
+  briefParamShow HEFTNLOParam {..} = "MH"++show mH++"WH"++show wH++"MA"++show mA++"WA"++show wA
   interpreteParam str = let r = parse heavyHiggsparse "" str 
                         in case r of
                           Right param -> param 
@@ -67,7 +69,12 @@ heavyHiggsparse = do
   mhstr <- many1 (oneOf "+-0123456789.")
   string "WH"
   whstr <- many1 (oneOf "+-0123456789.")
-  return (HEFTNLOParam (read mhstr) (read whstr))
+  string "MA"
+  mastr <- many1 (oneOf "+-0123456789.")
+  string "WA"
+  wastr <- many1 (oneOf "+-0123456789.")
+
+  return (HEFTNLOParam (read mhstr) (read whstr) (read mastr) (read wastr))
 
 -----------------------------
 -- for type representation 
