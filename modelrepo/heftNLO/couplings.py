@@ -73,8 +73,12 @@ GC_15 = Coupling(name = 'GC_15',
                  value = 'complex(0,1)*G**2*GH',
                  order = {'HIG':1,'QCD':2})
 
+#GC_16 = Coupling(name = 'GC_16',
+#                 value = '(complex(0,1)*Gphi)/8.',
+#                 order = {'HIG':1})
+
 GC_16 = Coupling(name = 'GC_16',
-                 value = '(complex(0,1)*Gphi)/8.',
+                 value = '-complex(0,1)*(G**2*yt/cmath.sqrt(2))',
                  order = {'HIG':1})
 
 GC_17 = Coupling(name = 'GC_17',

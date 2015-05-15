@@ -232,10 +232,16 @@ V_36 = Vertex(name = 'V_36',
               lorentz = [ L.UUS1 ],
               couplings = {(0,0):C.GC_52})
 
+#V_37 = Vertex(name = 'V_37',
+#              particles = [ P.G, P.G, P.h1 ],
+#              color = [ 'Identity(1,2)' ],
+#              lorentz = [ L.VVS1 ],
+#              couplings = {(0,0):C.GC_16})
+
 V_37 = Vertex(name = 'V_37',
               particles = [ P.G, P.G, P.h1 ],
               color = [ 'Identity(1,2)' ],
-              lorentz = [ L.VVS1 ],
+              lorentz = [ L.VVS5 ],
               couplings = {(0,0):C.GC_16})
 
 V_38 = Vertex(name = 'V_38',

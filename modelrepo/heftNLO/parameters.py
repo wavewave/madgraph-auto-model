@@ -322,7 +322,7 @@ GH = Parameter(name = 'GH',
 Gphi = Parameter(name = 'Gphi',
                  nature = 'internal',
                  type = 'real',
-                 value = '-(G**2*(1 + MH**6/(560.*MT**6) + MH**4/(90.*MT**4) + MH**2/(12.*MT**2)))/(8.*cmath.pi**2*v)',
+                 value = '0', #'-(G**2*(1 + MH**6/(560.*MT**6) + MH**4/(90.*MT**4) + MH**2/(12.*MT**2)))/(8.*cmath.pi**2*v)',
                  texname = 'G_h')
 
 lam = Parameter(name = 'lam',
