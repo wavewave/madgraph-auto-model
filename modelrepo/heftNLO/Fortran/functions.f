@@ -16,7 +16,7 @@
       mt = MDL_MT
       tau = 4*mt**2 / S
     
-      IF (REAL(tau) .GT. 1.0) THEN  
+      IF (REAL(tau) .LT. 1.0) THEN  
         beta = SQRT(1-tau)
         BRA = 0.5*(LOG((1+beta)/(1-beta)) - (0D0,1D0)*PI)**2
       ELSE 
@@ -24,6 +24,8 @@
       END IF
          
       FormFactor = - mt / (PIE**2 * S)*(1-0.5 * (1 - tau) * BRA ) 
+
+      !WRITE(0,*) S,BRA,FormFactor
 
       return 
       end
@@ -48,16 +50,16 @@
 
       tau = 4*mt**2 / S
     
-      IF (REAL(tau) .GT. 1.0) THEN  
+      IF (REAL(tau) .LT. 1.0) THEN  
         beta = SQRT(1-tau)
         BRA = 0.5*(LOG((1+beta)/(1-beta)) - (0D0,1D0)*PI)**2
       ELSE 
         BRA = -2.0*(ASIN(1/SQRT(tau)))**2
       END IF
          
-      FormFactor = mt / (16.0 * PIE**2 * S)* BRA 
+      FormFactor2 = 4.0*mt / (16.0 * PIE**2 * S)* BRA 
 
-      ! WRITE(0,*) tau,BRA,FormFactor
+      !WRITE(0,*) S,BRA,FormFactor2
 
       return 
       end

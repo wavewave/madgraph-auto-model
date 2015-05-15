@@ -77,9 +77,9 @@ VVS4 = Lorentz(name = 'VVS4',
                spins = [ 3, 3, 1 ],
                structure = 'FormFactor( P(-1,1)*P(-1,2) ) * (P(1,2)*P(2,1) - P(-1,1)*P(-1,2)*Metric(1,2) )')
 
-VVS5 = Lorentz(name = 'VVS1',
+VVS5 = Lorentz(name = 'VVS5',
                spins = [ 3, 3, 1 ],
-               structure = '-4*FormFactor2( P(-1,1)*P(-1,2) )*Epsilon(1,2,-1,-2)*P(-2,2)*P(-1,1) + 4*Epsilon(1,2,-1,-2)*P(-2,1)*P(-1,2)')
+               structure = 'FormFactor2( P(-1,1)*P(-1,2) ) * ( - Epsilon(1,2,-1,-2)*P(-2,2)*P(-1,1) + Epsilon(1,2,-1,-2)*P(-2,1)*P(-1,2))')
 
 VVV1 = Lorentz(name = 'VVV1',
                spins = [ 3, 3, 3 ],
