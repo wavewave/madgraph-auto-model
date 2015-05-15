@@ -425,3 +425,7 @@ GC_102 = Coupling(name = 'GC_102',
                   value = '-(yt*complexconjugate(CKM3x3))',
                   order = {'QED':1})
 
+GC_103 = Coupling(name = 'GC_103',
+                  value = '-(yt/cmath.sqrt(2))',
+                  order = {'QED':1})
+
