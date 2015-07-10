@@ -40,7 +40,6 @@
       DOUBLE COMPLEX beta
       DOUBLE COMPLEX BRA1
       DOUBLE COMPLEX BRA
-      DOUBLE COMPLEX CORRF
       REAL PIE
 
       INCLUDE 'coupl.inc'
@@ -49,13 +48,9 @@
       PIE=3.14159265358979323846264
       S = 2.0*HALFS
       mt = MDL_MT
-      !wh1 = MDL_WH1
-      wh1 = 11.82
       mh1 = MDL_MP
       tau = 4*mt**2 / S
 
-      CORRF = (S - mh1**2) / ((S-mh1**2)+(0D0,1D0)*mh1*wh1)
- 
       IF (REAL(tau) .LT. 1.0) THEN  
         beta = SQRT(1-tau)
         BRA1 = LOG((1+beta)/(1-beta)) - (0D0,1D0)*PIE
@@ -64,7 +59,7 @@
         BRA = -2.0*(ASIN(1/SQRT(tau)))**2
       END IF
          
-      FormFactor2 = 4.0*mt / (16.0 * PIE**2 * S)* BRA * CORRF
+      FormFactor2 = 0.5*4.0*mt / (16.0 * PIE**2 * S)* BRA
       !IF (REAL(tau) .LT. 1.0) THEN  
       !  WRITE(0,*) SQRT(S),CORRF !,FormFactor2
       !ENDIF

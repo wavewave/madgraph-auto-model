@@ -891,9 +891,10 @@ V_145 = Vertex(name = 'V_145',
                color = [ '1' ],
                lorentz = [ L.FFV2 ],
                couplings = {(0,0):C.GC_59})
+#####
 
 V_146 = Vertex(name = 'V_146',
                particles = [ P.t__tilde__, P.t, P.h1 ],
                color = [ 'Identity(1,2)' ],
-               lorentz = [ L.FFS2 ],
+               lorentz = [ L.FFS1 ],
                couplings = {(0,0):C.GC_103})

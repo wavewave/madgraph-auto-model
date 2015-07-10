@@ -59,7 +59,7 @@ DECAY   6 1.491500e+00 # WT
 DECAY  23 2.441404e+00 # WZ 
 DECAY  24 2.047600e+00 # WW 
 DECAY  25 $WH$     # WH 
-DECAY 9000006 0.00000e+00  # WH1 $WA$
+DECAY 9000006 $WA$  # WH1 
 ## Dependent parameters, given by model restrictions.
 ## Those values should be edited following the 
 ## analytical expression. MG5 ignores those values 
